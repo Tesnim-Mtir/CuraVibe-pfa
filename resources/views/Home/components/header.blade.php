@@ -10,7 +10,7 @@
         <ul>
        
           <li><a class="nav-link scrollto " href="/">Acceuil</a></li>
-          <li><a class="nav-link scrollto " href="don.">Don</a></li>
+          <li><a class="nav-link scrollto " href="don">Don</a></li>
 
         
           </a></li>
