@@ -50,13 +50,13 @@
        
             </ul>
           </li>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Acceuil</a></li>
+          <li><a class="nav-link scrollto" href="#about">A Propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-         <li><a class="nav-link   scrollto" href="#portfolio">Pharmacies</a></li>
+         <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
   
-          <li><a class="" href="check-out.php"><i class="fa fa-shopping-cart fa-5x" ></i>
-          </a></li>
+         <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>
+                  </a></li>
        
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -207,13 +207,13 @@ Gestion des stocks de médicaments :
 
       </div>
     </section><!-- End Cta Section -->
- <!-- ======= Portfolio Section ======= -->
+ <!-- ======= Don Section ======= -->
  <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Don</h2>
+          <p>Les utilisateurs peuvent généreusement offrir des équipements médicaux excédentaires pour répondre aux besoins de ceux qui en ont le plus besoin.</p>
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
