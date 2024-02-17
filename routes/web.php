@@ -22,3 +22,8 @@ Route::get('/inscription', function () {
 Route::get('/don', function () {
     return view('home/don');
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
