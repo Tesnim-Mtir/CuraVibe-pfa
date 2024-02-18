@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home/welcome');
+    return view('DON/welcome');
 });
-Route::get('/inscription', function () {
-    return view('home/inscription');
-});
+
 Route::get('/don', function () {
-    return view('home/don');
+    return view('DON/don');
 });
+
+/*Userspace Routes*/
+
+Route::get('/traitment', [UserController::class, 'newtraitment']);
+Route::get('/history', [UserController::class, 'history']);
+Route::get('/profile', [UserController::class, 'profile']);
+Route::get('/ongoing', [UserController::class, 'ongoing']);

@@ -48,7 +48,7 @@
 <body id="1">
 
   <!-- ======= Header ======= -->
-  @include('home.components.header')
+  @include('DON.components.header')
   <!-- End Header -->
 
   <!-- REGISTRATION AND LOGIN CONTAINER -->
@@ -72,7 +72,8 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Log in</div>
-                    <form action="" method="POST">
+                    <form action="login" method="POST">
+                        @csrf
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
@@ -95,16 +96,14 @@
                 </div>
                 <div class="signup-form">
                     <div class="title">Sign up</div>
-                    <form action="join-us.php" method="POST">
+                    <form action="{{ route('register') }}" method="POST">
+                        @csrf
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
                                 <input type="text" name="name" placeholder="Enter your Name" required>
                             </div> 
-                             <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" name="last name" placeholder="Enter your Last Name" required>
-                            </div>
+                          
 
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>

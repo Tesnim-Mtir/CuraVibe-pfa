@@ -37,7 +37,7 @@
 <body>
 
    <!-- ======= Header ======= -->
-   @include('home.components.header')
+   @include('DON.components.header')
  <!-- End Header -->
 
   <main id="main">
@@ -169,7 +169,7 @@
 
   </main><!-- End #main -->
 
-  @include('home.components.footer')
+  @include('DON.components.footer')
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
