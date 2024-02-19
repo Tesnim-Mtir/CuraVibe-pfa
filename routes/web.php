@@ -14,9 +14,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('DON/welcome');
+Route::get('/home', function () {
+    return view('DON/home');
+    
 });
+
 
 Route::get('/don', function () {
     return view('DON/don');

@@ -72,7 +72,7 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Log in</div>
-                    <form action="login" method="POST">
+                    <form action="" method="POST">
                         @csrf
                         <div class="input-boxes">
                             <div class="input-box">
