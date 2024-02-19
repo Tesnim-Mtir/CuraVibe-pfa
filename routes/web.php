@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,17 @@ Route::get('/inscription', function () {
 Route::get('/don', function () {
     return view('home/don');
 });
+
+
+
+Route::get('/chats_page', [ChartController::class, 'chatsPage']);
+use Laravel\Fortify\Fortify;
+
+Fortify::loginView(function () {
+    return view('home/inscription');
+});
+
+Fortify::registerView(function () {
+    return view('home/inscription');
+});
+

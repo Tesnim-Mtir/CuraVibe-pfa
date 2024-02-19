@@ -52,6 +52,7 @@
   <!-- End Header -->
 
   <!-- REGISTRATION AND LOGIN CONTAINER -->
+ 
  <section  >
     <div class="container hi">
         <input type="checkbox" id="flip">
@@ -72,7 +73,7 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Log in</div>
-                    <form action="" method="POST">
+                    <form method="POST" action="{{ route('login') }}">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
@@ -95,7 +96,7 @@
                 </div>
                 <div class="signup-form">
                     <div class="title">Sign up</div>
-                    <form action="join-us.php" method="POST">
+                    <form method="POST" action="{{ route('register') }}">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
