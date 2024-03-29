@@ -217,10 +217,10 @@ Gestion des stocks de médicaments :
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-card">Card</li>
-          <li data-filter=".filter-web">Web</li>
+          <li data-filter="*" class="filter-active">Tous</li>
+          <li data-filter=".filter-app">Category 1</li>
+          <li data-filter=".filter-card">Category 2</li>
+          <li data-filter=".filter-web">Category 3</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -389,7 +389,7 @@ Gestion des stocks de médicaments :
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
-
+        @include('Home/components.footer')
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

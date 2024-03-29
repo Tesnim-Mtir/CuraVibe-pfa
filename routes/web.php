@@ -20,5 +20,8 @@ Route::get('/inscription', function () {
     return view('home/inscription');
 });
 Route::get('/don', function () {
-    return view('home/don');
+    return view('home/don/don');
+});
+Route::get('/don_details', function () {
+    return view('home/don/don_details');
 });
