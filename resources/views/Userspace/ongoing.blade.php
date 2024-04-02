@@ -139,22 +139,34 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name medicaments</th>
+                                        <th scope="col">medicament</th>
                                         <th scope="col">Periode Traitment</th>
                                         <th scope="col">debut traitment</th>
-                                        <th scope="col">nombre de dose par jours</th>
-                                        <th scope="col">Time</th>
+                                        <th scope="col">fin traitment</th>
+                                        <th scope="col">Heure de prise</th>
+                                       
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ($traitements->count() > 0)
+                                           <h2>Traitements en cours :</h2>
+                                              
+                                  @foreach ($traitements as $traitement)
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                        <td>USA</td>
-                                        <td>123</td>
+                                        <td>{{ $traitement->medicament }}</td>
+                                        <td>{{ $traitement->Periode_Traitment}}</td>
+                                        <td>{{ $traitement->start_date}}</td>
+                                        <td>{{ $traitement->end_date }}</td>
+                                        
+                                        <td>
+                                          <ul>
+                                            @foreach ($traitement->heuresPrise as $heurePrise)
+                                                <li>{{ $heurePrise->heure }}</li>
+                                            @endforeach
+                                        </ul>
+                                        </td>
                                         <td>   
                                             <ul class="list-inline m-0">
                                           
@@ -167,23 +179,11 @@
                                          </ul>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                        <td>UK</td>
-                                        <td>456</td>
-                                        <td>  <ul class="list-inline m-0">
-                                          
-                                            <li class="list-inline-item">
-                                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                            </li>
-                                         </ul></td>
-                                    </tr>
+                                    @endforeach
+                                
+                            @else
+                                <p>Aucun traitement en cours pour le moment.</p>
+                            @endif
                                    
                                 </tbody>
                             </table>

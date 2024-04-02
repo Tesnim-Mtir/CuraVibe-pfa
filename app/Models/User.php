@@ -42,4 +42,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+
+    public function traitements()
+    {
+        return $this->hasMany(Traitment::class);
+    }
+
+    public function allergyUsers()
+    {
+        return $this->hasMany(Allergy_user::class);
+    }
+
+    public function historiques()
+    {
+        return $this->hasMany(Historique::class);
+    }
+     // Relation avec le profil de l'utilisateur
+     public function profile()
+     {
+         return $this->hasOne(Profile::class);
+     }
 }

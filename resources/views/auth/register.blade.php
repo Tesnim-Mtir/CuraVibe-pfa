@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="assets/2/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/2/css/owl.theme.css">
     <link rel="stylesheet" href="assets/2/css/owl.carousel.css">
+
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
     <link href='https fonts.googleapis.com/css?family=Lora:700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -96,7 +97,7 @@
                 </div>
                 <div class="signup-form">
                     <div class="title">Sign up</div>
-                    <form action="{{ route('register') }}" method="POST">
+                    <form action="/register" method="">
                         @csrf
                         <div class="input-boxes">
                             <div class="input-box">
@@ -140,7 +141,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/1/vendor/aos/aos.js"></script>
-  <script src="assets/11/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/1/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/1/vendor/swiper/swiper-bundle.min.js"></script>

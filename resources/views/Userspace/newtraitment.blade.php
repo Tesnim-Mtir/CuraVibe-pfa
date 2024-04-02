@@ -129,48 +129,54 @@
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-light rounded h-100 p-4">
                         <h6 class="mb-4">Add New Traitment</h6>
-                        <form>
+                        
+                        <form method="POST" action="/traitment/add"  >
+                            {{ csrf_field() }}
+
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Name medicament</label>
-                                <input type="text" class="form-control" id="exampleInputName"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                <label for="" class="form-label">Name medicament</label>
+                                <input type="text" class="form-control" name="medicament" >
+                              
+                            </div>
+
+                           
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Periode Traitment</label>
+                                <input type="number" class="form-control" name="periode_traitment">
+                              
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">debut traitment</label>
+                                <input type="date" class="form-control" name="start_date">
+                              
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">fin traitment</label>
+                                <input type="date" class="form-control" name="end_date">
+                              
+                            </div>
+
+                           
+
+                             <div class="mb-3">
+                                <div id="horaires">
+                                    <div class="horaire">
+                                        <label for="heure">Heure de prise:</label>
+                                        <input type="time" name="heure[]" required>
+                                        <br>
+                                    </div>
                                 </div>
+                            
+                                <button type="button" onclick="ajouterHoraire()">Ajouter un horaire </button>
+                                <br>
+                            
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Periode Traitment</label>
-                                <input type="number" class="form-control" id="exampleInputperiode"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">debut traitment</label>
-                                <input type="date" class="form-control" id="exampleInputdate"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">nombre de dose par jours</label>
-                                <input type="number" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Time</label>
-                                <input type="time" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">date expiration</label>
-                                <input type="date" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">ADD</button>
+
+                           
+                           
+                            <button type="submit" class="btn btn-primary">Create Traitment</button>
                         </form>
                     </div>
                 </div>
@@ -221,6 +227,30 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('assets/js/main.js')}}"></script>
+    
+<script>
+    function ajouterHoraire() {
+        var horairesDiv = document.getElementById('horaires');
+        var nouvelleHoraireDiv = document.createElement('div');
+        nouvelleHoraireDiv.classList.add('horaire');
+
+        var label = document.createElement('label');
+        label.textContent = 'Heure de prise :  ';
+
+        var input = document.createElement('input');
+        input.type = 'time';
+        input.name = 'heures[]';
+        input.required = true;
+
+        var br = document.createElement('br');
+
+        nouvelleHoraireDiv.appendChild(label);
+        nouvelleHoraireDiv.appendChild(input);
+        nouvelleHoraireDiv.appendChild(br);
+
+        horairesDiv.appendChild(nouvelleHoraireDiv);
+    }
+</script>
 </body>
 
 </html>

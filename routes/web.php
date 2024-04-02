@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,13 @@ Route::get('/don', function () {
 /*Userspace Routes*/
 
 Route::get('/traitment', [UserController::class, 'newtraitment']);
+Route::POST('/traitment/add', [UserController::class, 'addnewtraitment']);
 Route::get('/history', [UserController::class, 'history']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::get('/ongoing', [UserController::class, 'ongoing']);
+Route::get('/register', [UserController::class, 'register']);
+
+
+
+
+  

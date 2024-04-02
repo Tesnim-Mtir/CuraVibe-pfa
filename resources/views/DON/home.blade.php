@@ -54,6 +54,7 @@
           <li><a class="nav-link scrollto" href="#about">A Propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
          <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
+         <li><a class="nav-link   scrollto" href="/ongoing">Account</a></li>
   
          <li><a class="getstarted scrollto" href="register">Inscription</a></li>
                   </a></li>
