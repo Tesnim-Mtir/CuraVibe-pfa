@@ -25,3 +25,8 @@ Route::get('/don', function () {
 Route::get('/don_details', function () {
     return view('home/don/don_details');
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
