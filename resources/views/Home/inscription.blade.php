@@ -73,7 +73,7 @@
             <div class="form-content">
                 <div class="login-form">
                     <div class="title">Log in</div>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('') }}">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>

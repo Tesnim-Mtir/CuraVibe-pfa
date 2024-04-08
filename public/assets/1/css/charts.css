@@ -1,0 +1,214 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color:#014198;
+    position: fixed;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar img {
+    max-width: 40%;
+    margin-bottom: 10px;
+}
+.sidebar span {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    color: white;
+}
+.sidebar i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Navbar */
+.navbar {
+    background-color:#014198;
+    padding: 15px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar form {
+    display: flex;
+    align-items: center;
+}
+.navbar input {
+    padding: 8px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.content {
+    margin-left: 260px;
+    padding: 20px;
+}
+.pagetitle {
+    margin-bottom: 20px;
+}
+.breadcrumb {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.breadcrumb-item {
+    display: inline;
+    margin-right: 5px;
+}
+.breadcrumb-item::after {
+    content: '>';
+    margin-left: 5px;
+    color: #999;
+}
+.breadcrumb-item:last-child::after {
+    content: '';
+    margin-left: 0;
+}
+.section {
+    margin-top: 20px;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 1rem;
+    margin-right: 35px;
+    padding: 20px;
+    background-color: #D2E8E3;
+    /* Supprimez les dimensions fixes de la carte */
+}
+
+#lineChart {
+    width: 100%; /* Le graphique occupera 100% de la largeur de la carte */
+    height: 100%; /* Le graphique occupera 100% de la hauteur de la carte */
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.card a {
+    color: #007bff;
+    text-decoration: none;
+}
+.card-body {
+    padding: 1.25rem;
+    background-color:white; 
+}
+.card-yellow .card-body {
+    background-color: #f1c40f; /* Couleur jaune */
+}
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+.card-text {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Optional: Flexbox for cards alignment */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+/* Custom Cards */
+.big-card {
+    width: 605px;
+    height: 300px;
+    background-color: D2E8E3;
+}
+.min-card {
+    width: 340px;
+   
+    height: 300px;
+}
+.card-blue .card{
+    background-color: #db6934; /* Couleur bleue */
+    color: #fff; /* Couleur du texte blanc */
+}
+
+.card-green .card{
+    background-color: #2ecc71; /* Couleur verte */
+    color: #fff; /* Couleur du texte blanc */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #fd97cf;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+h2 {
+    font-size: 22px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Style pour la phrase */
+p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+}

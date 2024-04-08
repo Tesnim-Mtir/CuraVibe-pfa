@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\ChartJSController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +30,18 @@ Route::get('/don', function () {
 
 
 
-Route::get('/chats_page', [ChartController::class, 'chatsPage']);
-use Laravel\Fortify\Fortify;
 
-Fortify::loginView(function () {
-    return view('home/inscription');
+
+
+Route :: get ( '/Graphique' , [ ChartJSController :: class , 'chartData' ])->name('graphique'); 
+
+
+Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
+
+Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
+Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
+
+
+Route::get('/Graphique', function () {
+    return view('charts/Graphique');
 });
-
-Fortify::registerView(function () {
-    return view('home/inscription');
-});
-
