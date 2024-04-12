@@ -25,8 +25,11 @@ Route::get('/don', function () {
 Route::get('/don_details', function () {
     return view('home/don/don_details');
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+Route::get('/login', function () {
+    return view('resources\views\auth\login');
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
