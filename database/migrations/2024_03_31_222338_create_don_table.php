@@ -11,13 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dones', function (Blueprint $table) {
+        Schema::create('Don', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');
-            $table->string('product');
             $table->integer('quantite')->default(0);
+            $table->unsignedBigInteger('user_id');
+            
+           
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+       
        
         });
     }

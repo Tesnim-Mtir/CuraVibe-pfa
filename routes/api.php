@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChartJSController;
-use App\Http\Controllers\ChartController;
+//use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\Controller;
 
 
 /*
@@ -20,9 +20,4 @@ use App\Http\Controllers\ChartController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route :: get ( '/Graphique' , [ ChartJSController:: class , 'chartData' ])->name('graphique');
-Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
-Route :: get ( 'Graphique' , [ ChartJSController :: class , 'donutChart' ]); 
-
-Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('graphique');
+Route :: get ( '/Graphique' , [ Controller :: class , 'graphique' ])->name('graphique'); 

@@ -48,7 +48,7 @@
     
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Chart.js</h1>
+            <h1></h1>
             
         </div>
         <div class="row">
@@ -60,58 +60,67 @@
                   <div class="card card-blue">
                       <div class="card-body">
                         <h4>Tendance des Contributions Utilisateurs</h4>
-                        <p>Observez la tendance des produits recyclés et dones par chaque utilisateur selon la période </p>
-                        <canvas id="lineChart" width="1000px" height="280px"></canvas>
+                        <p>Observez la tendance des produits  dones par chaque utilisateur selon la période </p>
+                       
+                        <canvas id="orderChart" width="900px" height="180px"></canvas>
                         <script src = "https://cdn.jsdelivr.net/npm/chart.js" ></script> 
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-                        
-                                <!-- Line Chart -->
-                                        
-                                <script>
-                                    var ctx = document.getElementById('lineChart').getContext('2d');
-                                    
-                                    function fetchData() {
-                                        fetch("{{ route('graphique') }}")
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                console.log(data);
-                            
-                                                var labels = data.map(function(item) {
-                                                    return item.id;
-                                                });
-                            
-                                                var values = data.map(function(item) {
-                                                    return item.quantite;
-                                                });
-                            
-                                                var lineChart = new Chart(ctx, {
-                                                    type: 'line',
-                                                    data: {
-                                                        labels: labels,
-                                                        datasets: [{
-                                                            label: 'Chart Data',
-                                                            data: values,
-                                                            borderColor: 'rgba(75, 192, 192, 1)',
-                                                            borderWidth: 1,
-                                                            fill: false
-                                                        }]
-                                                    },
-                                                    options: {
-                                                        scales: {
-                                                            x: {
-                                                                type: 'linear',
-                                                                position: 'bottom'
-                                                            }
-                                                        }
-                                                    }
-                                                });
-                                            });
+                        <script>
+                            // Fonction pour mettre à jour le graphique lorsque l'année est modifiée
+                            function updateChart(year) {
+                                $.ajax({
+                                    url: "{{ route('graphique') }}",
+                                    method: "GET",
+                                    data: { year: year },
+                                    success: function(data) {
+                                        // Mettre à jour les données du graphique
+                                        myChart.data.labels = data.labels;
+                                        myChart.data.datasets[0].data = data.data;
+                                        myChart.update();
                                     }
-                            
-                                    // Call fetchData function to load chart data
-                                    fetchData();
-                                </script>
-                         </div>
+                                });
+                            }
+                        
+                            $(function() {
+                                // Créer le graphique initial lors du chargement de la page
+                                $.ajax({
+                                    url: "{{ route('graphique') }}",
+                                    method: "GET",
+                                    data: { year: "{{ date('Y') }}" },
+                                    success: function(data) {
+                                        var ctx = document.getElementById('orderChart').getContext('2d');
+                                        var myChart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: data.labels,
+                                                datasets: [{
+                                                    label: 'Nombre de Dones par mois',
+                                                    data: data.data,
+                                                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            
+                                        });
+                                    }
+                                });
+                        
+                                // Mettre à jour le graphique lorsqu'une nouvelle année est sélectionnée
+                                $('input[name="year"]').change(function() {
+                                    var year = $(this).val();
+                                    updateChart(year);
+                                });
+                        
+                                // Fonction pour mettre à jour le graphique lorsque le bouton de mise à jour est cliqué
+                                function updateOnClick() {
+                                    var year = $('input[name="year"]:checked').val();
+                                    updateChart(year);
+                                }
+                            });
+                        </script>
+                        
+                                    <p><i class="bi bi-arrow-repeat" style="cursor: pointer;" onclick="updateOnClick()"></i> Mise à jour</p> </div>
                 </div>
             </div>
             </div>
@@ -126,7 +135,7 @@
                          
     <script>
         // Récupérer les pourcentages depuis le contrôleur
-        function fetchData() {
+        function fetchDataDount() {
             fetch("{{ route('graphique') }}")
                 .then(response => response.json())
                 .then(data => {
@@ -149,14 +158,37 @@
                                 ]
                             }]
                         }
+                       
                     });
                 });
         }
+        function updateChartData() {
+        fetch("{{ route('graphique') }}")
+            .then(response => response.json())
+            .then(data => {
+                var recyclePercentage = data.recyclePercentage;
+                var donePercentage = data.donePercentage;
 
-        // Call the fetchData function to load data and draw the chart
-        fetchData();
-    </script>           </div>
-                    
+                // Mise à jour des données du graphique existant
+                donutChart.data.datasets[0].data = [recyclePercentage, donePercentage];
+                donutChart.update(); // Mettre à jour le graphique
+            });
+    }
+
+    // Appeler la fonction pour récupérer les données initiales et dessiner le graphique
+    fetchDataDount();
+
+    // Fonction pour mettre à jour les données du graphique lorsqu'on clique sur le bouton
+    function updateChartOnClick() {
+        updateChartData();
+    }
+    </script> 
+    <p>
+        <i class="bi bi-arrow-repeat" style="cursor: pointer;" onclick="updateChartOnClick()"></i> Mise à jour
+    </p>
+                   
+    </div>
+  
                     </div>
                 </div>
                 
@@ -226,7 +258,7 @@
                                     var row = "<tr>" +
                                                 "<td>" + stat.user.name + "</td>" +
                                                 "<td>" + stat.action + "</td>" +
-                                                "<td>" + stat.product.name + "</td>" +
+                                                "<td>" + stat.description.name + "</td>" +
                                                 "<td>" + stat.date + "</td>" +
                                               "</tr>";
                                     $("#statisticsBody").append(row);
@@ -250,6 +282,7 @@
                             fetchStatistics("Semain");
                         });
                     </script>
+                    
                 </div>
             </div>
         </div>

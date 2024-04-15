@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChartController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ChartJSController;
 
 
@@ -33,13 +33,13 @@ Route::get('/don', function () {
 
 
 
-Route :: get ( '/Graphique' , [ ChartJSController :: class , 'chartData' ])->name('graphique'); 
+Route :: get ( '/Graphique' , [ Controller :: class , 'graphique' ])->name('graphique'); 
 
 
-Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
+//Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
 
-Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
-Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
+//Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
+//Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
 
 
 Route::get('/Graphique', function () {

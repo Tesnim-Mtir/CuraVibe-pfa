@@ -50,9 +50,9 @@ class User extends Authenticatable
     return $this->hasMany(Recycle::class);
     }
 
-    public function dones()
+    public function don()
     {
-    return $this->hasMany(Dones::class);
+    return $this->hasMany(Don::class);
     }
 
 }

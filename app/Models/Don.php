@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dones extends Model
+class Don extends Model
 
 {
     use HasFactory;
-    protected $table = 'Dones';// Le nom de votre table dans la base de données
+    protected $table = 'Don';// Le nom de votre table dans la base de données
 
     protected $fillable = ['user_id', 'product'];
     public function user()

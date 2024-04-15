@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Dones;
+use App\Models\Don;
 use Carbon\Carbon;
 
 use App\Models\Recycle;
@@ -11,13 +11,33 @@ use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class ChartJSController extends Controller
 {
-    public function chartData()
+    public function graphique(Request $request)
     {
-        $dones = Dones::select('id', 'quantite')->get();
-        return response()->json($dones);
-    }
-   
+        $year = $request->input('year', date('Y'));
+        $orderCounts = Don::whereYear('created_at', $year)
+            ->get()
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('m');
+            })
+            ->map(function($month) {
+                return $month->count();
+            });
 
+        $labels = [];
+        $data = [];
+
+        // Remplir les données et les étiquettes pour les mois
+        for ($i = 1; $i <= 12; $i++) {
+            $month = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $labels[] = Carbon::createFromFormat('!m', $month)->monthName;
+            $data[] = $orderCounts->get($month, 0);
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'data' => $data,
+        ]);
+    }
 
 public function yourControllerMethod ()
 {
@@ -33,7 +53,7 @@ public function donutChart()
         $recycleCount = Recycle::count();
     
         // Obtenez le nombre d'actions de don
-        $doneCount = Dones::count();
+        $doneCount = Don::count();
     
         // Vérifiez si le nombre total d'utilisateurs est différent de zéro pour éviter la division par zéro
         if ($totalUsers != 0) {
@@ -69,15 +89,15 @@ public function donutChart()
         }
 
         // Fetch done data
-        $doneData = Dones::with('user', 'product')
+        $doneData = Don::with('user', 'description')
                         ->whereBetween('created_at', [$startDate, $endDate])
-                        ->select('id', 'user_id', 'product_id', 'created_at as date')
+                        ->select('id', 'user_id', 'description_id', 'created_at as date')
                         ->get();
 
         // Fetch recycle data
-        $recycleData = Recycle::with('user', 'product')
+        $recycleData = Recycle::with('user', 'description')
                               ->whereBetween('created_at', [$startDate, $endDate])
-                              ->select('id', 'user_id', 'product_id', 'created_at as date')
+                              ->select('id', 'user_id', 'description_id', 'created_at as date')
                               ->get();
 
         // Merge done and recycle data into a single collection
@@ -85,7 +105,7 @@ public function donutChart()
 
         // Add an "action" attribute to distinguish between donated and recycled products
         $statistics->transform(function ($item, $key) {
-            $item['action'] = $item instanceof Dones ? 'Donation' : 'Recycle';
+            $item['action'] = $item instanceof Don ? 'Donation' : 'Recycle';
             return $item;
         });
 
