@@ -25,3 +25,10 @@ Route::get('/don', function () {
 Route::get('/don_details', function () {
     return view('home/don/don_details');
 });
+Route::get('/add', function () {
+    return view('home/don/add');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

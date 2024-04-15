@@ -53,7 +53,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Acceuil</a></li>
           <li><a class="nav-link scrollto" href="#about">A Propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-         <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
+         <li><a class="nav-link   scrollto" href="don">Don</a></li>
   
          <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>
                   </a></li>
@@ -316,8 +316,8 @@ Gestion des stocks de médicaments :
           </div>
 
         </div>
-
       </div>
+
     </section><!-- End Portfolio Section -->
 
 
