@@ -25,15 +25,10 @@ Route::get('/don', function () {
 Route::get('/don_details', function () {
     return view('home/don/don_details');
 });
-<<<<<<< HEAD
-Route::get('/add', function () {
-    return view('home/don/add');
-=======
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
->>>>>>> 0b7dd9e6d6f6aa97eab17c862e46b85d6470b6c0
 });
 
 Auth::routes();
