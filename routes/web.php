@@ -23,7 +23,7 @@ Route::get('/inscription', function () {
 
 Route::get('/', [DonationController::class, 'home']);
 
-Route::get('/don', [DonationController::class, 'index']);
+Route::get('/don', [DonationController::class, 'index'])->name('don.index');
 
 Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details');
 

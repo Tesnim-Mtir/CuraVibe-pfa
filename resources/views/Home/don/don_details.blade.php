@@ -44,7 +44,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Acceuil</a></li>
+          <li><a href="/">Acceuil</a></li>
           <li>Produit</li>
         </ol>
         <h2> Produit</h2>
@@ -75,16 +75,16 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Nom :{{ $donation->nom }}</h3>
-              <h3>Etat:{{ $donation->etat }}</h3>
-              <h3>Quantite:{{ $donation->quantite }}</h3>
-              <h3>numero télèphone:{{ $donation->numero }}</h3>
+              
+              <p><strong>Nom:</strong> {{ $donation->nom }}</p>
+              <p><strong>Etat:</strong> {{ $donation->etat }}</p> <span> </span>
+                <p><strong>Quantite:</strong>{{ $donation->quantite }}</p> <span> </span>
+             <p><strong>numero télèphone:</strong>+216{{ $donation->numero }}</p>
+                
 
 
 
-              <ul>
                
-              </ul>
             </div>
             <div class="portfolio-description">
               <h2>Description</h2>

@@ -50,7 +50,7 @@
                 <h3>Ajouter un don</h3>
                 <div class="form-row">
                     <input type="text" class="form-control" name="nom" placeholder="Nom" required>
-                    <input type="text" class="form-control" name="quantite" placeholder="Qantité" required>
+                    <input type="number" class="form-control" name="quantite" placeholder="Qantité" required>
                    
                 </div>
                 <div class="form-row">

@@ -70,6 +70,6 @@ class DonationController extends Controller
         $donation->save();
     
         // Redirect the user
-        return redirect()->route('donation.create')->with('success', 'Donation added successfully!');
+        return redirect()->route('don.index')->with('success', 'Donation added successfully!');
     }
 }
