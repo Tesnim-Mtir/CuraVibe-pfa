@@ -41,7 +41,6 @@ class DonationController extends Controller
     }
     public function store(Request $request)
     {
-        // Validate the user input
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
             'utilisateur' => 'nullable|string',
@@ -61,16 +60,15 @@ class DonationController extends Controller
         $donation->quantite = $validatedData['quantite'] ?? null;
         $donation->description = $validatedData['description'];
     
-
         // Handle image upload
         if ($request->hasFile('image')) {
             $imageName = $request->file('image')->getClientOriginalName(); // Get the original file name
             $imagePath = $request->file('image')->storeAs('images', $imageName); // Store the image with the original file name
             $donation->image = $imageName; // Save only the file name in the database
         }
-
+    
         $donation->save();
-
+    
         // Redirect the user
         return redirect()->route('donation.create')->with('success', 'Donation added successfully!');
     }
