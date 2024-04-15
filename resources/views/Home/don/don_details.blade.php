@@ -63,7 +63,7 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="{{ asset('assets/1/img/' . $donation->image) }}" alt="{{ $donation->nom }}" width="100" height="700">
+                  <img src="{{ asset('assets/1/img/' . $donation->image) }}" alt="{{ $donation->nom }}" width="50" height="700">
 
                 </div>
 
@@ -75,7 +75,13 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>{{ $donation->nom }}</h3>
+              <h3>Nom :{{ $donation->nom }}</h3>
+              <h3>Etat:{{ $donation->etat }}</h3>
+              <h3>Quantite:{{ $donation->quantite }}</h3>
+              <h3>numero télèphone:{{ $donation->numero }}</h3>
+
+
+
               <ul>
                
               </ul>

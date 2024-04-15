@@ -44,14 +44,23 @@ class DonationController extends Controller
         // Validate the user input
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
+            'utilisateur' => 'nullable|string',
+            'numero' => 'nullable|string',
+            'etat' => 'nullable|string',
+            'quantite' => 'nullable|string',
             'description' => 'required|string',
             'image' => 'required|image|max:2048', 
         ]);
-
+    
         // Store the data in the database
         $donation = new Don();
         $donation->nom = $validatedData['nom'];
+        $donation->utilisateur = $validatedData['utilisateur'] ?? null;
+        $donation->numero = $validatedData['numero'] ?? null;
+        $donation->etat = $validatedData['etat'] ?? null;
+        $donation->quantite = $validatedData['quantite'] ?? null;
         $donation->description = $validatedData['description'];
+    
 
         // Handle image upload
         if ($request->hasFile('image')) {

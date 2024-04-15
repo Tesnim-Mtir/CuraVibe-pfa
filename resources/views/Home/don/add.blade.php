@@ -50,10 +50,17 @@
                 <h3>Ajouter un don</h3>
                 <div class="form-row">
                     <input type="text" class="form-control" name="nom" placeholder="Nom" required>
+                    <input type="text" class="form-control" name="quantite" placeholder="Qantité" required>
                    
                 </div>
                 <div class="form-row">
                     <input type="file" class="form-control" name="image" accept="image/*" required>
+                    <select class="form-control" name="etat" required>
+                        <option value="" disabled selected>Sélectionner l'état</option>
+                        <option value="Neuf">Neuf</option>
+                        <option value="Occasion">Occasion</option>
+                    </select>
+                    
                 </div>
                 <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required></textarea>
                 <button type="submit">Ajouter <i class="zmdi zmdi-long-arrow-right"></i></button>

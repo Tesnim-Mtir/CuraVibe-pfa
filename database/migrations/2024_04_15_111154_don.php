@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('don', function (Blueprint $table) {
             $table->id();
+            $table->string('utilisateur')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('etat')->nullable();
             $table->string('nom');
-            $table->text('description');
+            $table->string('quantite')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
