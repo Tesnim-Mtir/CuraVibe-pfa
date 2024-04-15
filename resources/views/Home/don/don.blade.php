@@ -63,103 +63,31 @@
   
           <div class="section-title">
             <h2>Don</h2>
-            <p> Description </p>
+            <p> Le don, un geste simple qui peut changer des vies. </p>
           </div>
-  
-      
-  
+
           <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-               <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-              <div class="portfolio-info">
-                <h4>Nom</h4>
-                <p>Prix </p>
-
-                <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-img"><img src="assets/1/img/product/doliprane.jpg" class="img-fluid" alt=""></div>
-                <div class="portfolio-info">
-                  <h4>Nom</h4>
-                  <p>Prix </p>
-  
-                  <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="don_details" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-
-              
+             @foreach($donations as $donation)
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-img">
+            <img src="assets/1/img/{{ $donation->image }}" class="img-fluid" alt="{{ $donation->nom }}">
+        </div>
+        <div class="portfolio-info">
+            <h4>{{ $donation->nom }}</h4>
+            <p>{{ $donation->description }}</p>
             
+            <a href="assets/1/img/{{ $donation->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $donation->nom }}">
+                <i class="bx bx-plus"></i>
+            </a>
+            <a href="{{ route('don_details', ['id' => $donation->id]) }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             
-  
-       
-      
-  
+            </a>
+        </div>
+    </div>
+@endforeach
+
+
          
-  
-          
-  
-  
-          </div>
-  
         </div>
       </section><!-- End Portfolio Section -->
        <!-- ======= Pharmacies Section ======= -->

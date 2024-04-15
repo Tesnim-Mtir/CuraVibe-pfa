@@ -10,24 +10,24 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/1/img/favicon.png" rel="icon">
-  <link href="assets/1/img/favicon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/1/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/1/img/favicon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i') }}" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/1/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/1/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/1/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/1/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/1/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/1/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="{{ asset('assets/1/vendor/aos/aos.css') }}"rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/1/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css') }}">
 
   <!-- Template Main CSS File -->
-  <link href="assets/1/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets/1/css/style.css') }}" rel="stylesheet">
 
 
 </head>
@@ -63,16 +63,10 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/1/img/product/doliprane.jpg" alt="">
+                  <img src="{{ asset('assets/1/img/' . $donation->image) }}" alt="{{ $donation->nom }}" width="100" height="700">
+
                 </div>
 
-                <div class="swiper-slide">
-                    <img src="assets/1/img/product/doliprane.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                    <img src="assets/1/img/product/doliprane.jpg" alt="">
-                </div>
 
               </div>
               <div class="swiper-pagination"></div>
@@ -81,15 +75,15 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3> information</h3>
+              <h3>{{ $donation->nom }}</h3>
               <ul>
                
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>Description</h2>
-              <p>
-              </p>
+              <p>{{ $donation->description }}</p>
+
             </div>
           </div>
 
@@ -108,16 +102,16 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/1/vendor/aos/aos.js"></script>
-  <script src="assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/1/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/1/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/1/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/1/vendor/php-email-form/validate.js"></script>
+  <script src="{{asset('assets/1/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/waypoints/noframework.waypoints.js')}}"></script>
+  <script src="{{asset('assets/1/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/1/js/main.js"></script>
+  <script src="{{ asset('assets/1/js/main.js') }}"></script>
 
 </body>
 

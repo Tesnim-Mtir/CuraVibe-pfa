@@ -40,35 +40,27 @@
 <body>
     @include('home/components.header')
 
-<div class="wrapper">
-    <div class="inner">
-        <div class="image-holder">
-            <img src="assets/5/images/registration-form-6.jpg" alt="">
+    <div class="wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="assets/5/images/registration-form-6.jpg" alt="">
+            </div>
+            <form action="{{ route('donation.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h3>Ajouter un don</h3>
+                <div class="form-row">
+                    <input type="text" class="form-control" name="nom" placeholder="Nom" required>
+                   
+                </div>
+                <div class="form-row">
+                    <input type="file" class="form-control" name="image" accept="image/*" required>
+                </div>
+                <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required></textarea>
+                <button type="submit">Ajouter <i class="zmdi zmdi-long-arrow-right"></i></button>
+            </form>
         </div>
-        <form action="">
-            <h3>Ajouter un don</h3>
-            <div class="form-row">
-                <input type="text" class="form-control" placeholder="Nom ">
-                <select name="" id="" class="form-control">
-                    <option value="" disabled selected>Categorie</option>
-                    <option value="class 01">Categorie 1</option>
-                    <option value="class 02">Categorie 2</option>
-                    <option value="class 03">Categorie 3</option>
-                </select>
-            </div>
-            <div class="form-row">
-                <input type="file" class="form-control" accept="image/*">
-                <input type="text" class="form-control" placeholder="Numéro de télèphone">
-            </div>
-          
-            <textarea name="" id="" placeholder="Description" class="form-control" style="height: 130px;"></textarea>
-            <button>Ajouter
-                <i class="zmdi zmdi-long-arrow-right"></i>
-            </button>
-        </form>
-        
     </div>
-</div>
+    
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,20 @@ Route::get('/', function () {
 Route::get('/inscription', function () {
     return view('home/inscription');
 });
-Route::get('/don', function () {
-    return view('home/don/don');
-});
-Route::get('/don_details', function () {
-    return view('home/don/don_details');
-});
 
+Route::get('/', [DonationController::class, 'home']);
+
+Route::get('/don', [DonationController::class, 'index']);
+
+Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details');
+
+Route::get('/add', [DonationController::class, 'create'])->name('donation.create');
+Route::post('/add', [DonationController::class, 'store'])->name('donation.store');
+
+
+Route::get('/1', function () {
+    return view('home/don/add');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
