@@ -76,7 +76,7 @@
                 <p>Prix </p>
 
                 <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
 
@@ -87,7 +87,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -98,7 +98,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -120,7 +120,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -142,7 +142,7 @@
                   <p>Prix </p>
   
                   <a href="assets/1/img/product/doliprane.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href=" " class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="don_details" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
 
@@ -188,3 +188,4 @@
 </body>
 
 </html>
+@endsection

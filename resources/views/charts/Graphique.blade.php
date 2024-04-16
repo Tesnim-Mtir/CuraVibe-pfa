@@ -21,29 +21,47 @@
         <img src="assets\1\img\logo.png" alt="CuraVibe">
        
         <ul>
-            <li><a href="#"><i class="bi bi-journal-text"></i> Forms</a></li>
-            <li><a href="#"><i class="bi bi-layout-text-window-reverse"></i> Tables</a></li>
-            <li><a href="route('Graphique', now()->year)" icon="chart-bar":active="currentRouteActive('statistics')"> <i class="bi bi-bar-chart"></i> Charts</a></li>
-            <li><a href="#"><i class="bi bi-gem"></i> Icons</a></li>
-            <li><a href="#"><i class="bi bi-person"></i> Profile</a></li>
-            <li><a href="#"><i class="bi bi-question-circle"></i> F.A.Q</a></li>
-            <li><a href="#"><i class="bi bi-envelope"></i> Contact</a></li>
-            <li><a href="#"><i class="bi bi-card-list"></i> Register</a></li>
-            <li><a href="#"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
-            <li><a href="#"><i class="bi bi-dash-circle"></i> Error 404</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark"></i> Blank</a></li>
+            <li><a href="#"><i class="bi bi-journal-text"></i>Acceuil</a></li>
+            <li><a href="#"><i class=""></i>Dones</a></li>
+            <li><a href="#"><i class="bi bi-gem"></i> Recyclage </a></li>
+
+            <li><a href="#" icon="chart-bar":active="currentRouteActive('statistiques')"> <i class="bi bi-bar-chart"></i>statistiques</a></li>
+      
+          <script>
+            function currentRouteActive(statistiques) {
+    // Logic to determine if the current route matches the provided routeName
+    // For example:
+    return currentRoute === statistiques;
+}
+
+          </script>
         </ul>
     </div>
 
     <div class="content">
-        <div class="navbar">
-            <form action="#" method="get">
-                <input type="text" placeholder="Rechercher..." name="search">
-                <button type="submit"><i class="bi bi-search"></i></button>
-                
-            </form>
-            
-        </div>
+       <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+
+      
+    
+      <nav id="navbar" class="navbar">
+        <ul>
+       
+          <li><a class="nav-link scrollto " href="/">Acceuil</a></li>
+          <li><a class="nav-link scrollto " href="don">Don</a></li>
+
+        
+          </a></li>
+   <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>   
+   </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+
+ 
 
     
     <main id="main" class="main">
