@@ -60,7 +60,7 @@
                  
                     <a href="/ongoing" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ongoing</a>
                     <a href="/history" class="nav-item nav-link"><i class="fas fa-history"></i></i>History</a>
-                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Stock</a>
+                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                  
                     
@@ -110,12 +110,12 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Mon Ya</span>
+                            <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="/profile" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                          
+                            <a href="/signout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -125,6 +125,12 @@
 
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
+                @if(session('warning'))
+                      <div class="alert alert-warning">
+                            {{ session('warning') }}
+                     </div>
+                @endif
+
                 <div class="row justify-content-center">
                 <div class="col-sm-12 col-xl-6">
                     <div class="bg-light rounded h-100 p-4">
@@ -136,6 +142,7 @@
                             <div class="mb-3">
                                 <label for="" class="form-label">Name medicament</label>
                                 <input type="text" class="form-control" name="medicament" >
+                              
                               
                             </div>
 
@@ -163,7 +170,7 @@
                              <div class="mb-3">
                                 <div id="horaires">
                                     <div class="horaire">
-                                        <label for="heure">Heure de prise:</label>
+                                        <label for="heure">Heures de prise:</label>
                                         <input type="time" name="heure[]" required>
                                         <br>
                                     </div>
@@ -235,11 +242,11 @@
         nouvelleHoraireDiv.classList.add('horaire');
 
         var label = document.createElement('label');
-        label.textContent = 'Heure de prise :  ';
+        label.textContent = 'Heures de prise :  ';
 
         var input = document.createElement('input');
         input.type = 'time';
-        input.name = 'heures[]';
+        input.name = 'heure[]';
         input.required = true;
 
         var br = document.createElement('br');

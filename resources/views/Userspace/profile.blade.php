@@ -40,49 +40,9 @@
     <a href="/ongoing" class="navbar-brand mx-4 mb-3">
         <h3 class="text-primary"><i class=""></i>Curavibe</h3>
     </a>
-    <form class="d-none d-md-flex ms-4">
-        <input class="form-control border-0" type="search" placeholder="Search">
-    </form>
+
     <div class="navbar-nav align-items-center ms-auto">
-        <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                <i class="fa fa-envelope me-lg-2"></i>
-                <span class="d-none d-lg-inline-flex">Message</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">
-                    <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                    </div>
-                </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
-                    <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                    </div>
-                </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item">
-                    <div class="d-flex align-items-center">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="ms-2">
-                            <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                    </div>
-                </a>
-                <hr class="dropdown-divider">
-                <a href="#" class="dropdown-item text-center">See all message</a>
-            </div>
-        </div>
+       
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fa fa-bell me-lg-2"></i>
@@ -110,12 +70,11 @@
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex">Mon Ya</span>
+                <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                 <a href="/profile" class="dropdown-item">My Profile</a>
-                <a href="#" class="dropdown-item">Settings</a>
-                <a href="#" class="dropdown-item">Log Out</a>
+                 <a href="/signout" class="dropdown-item">Log Out</a>
             </div>
         </div>
     </div>
@@ -129,17 +88,17 @@
         <hr class="mt-0 mb-4">
         <div class="row">
             <div class="col-xl-4">
-                <form     enctype="multipart/form-data">
+               
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
+                    <!--div class="card-header">Profile Picture</div-->
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                            <!-- div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div-->
                         <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
+                            <!-- button class="btn btn-primary" type="button">Upload new image</button-->
                     </div>
                 </div>
             </div>
@@ -147,19 +106,22 @@
                 <!-- Account details card-->
                 <div class="card mb-4">
                     <div class="card-header">Account Details</div>
-                    <div class="card-body">
-                      
-                          
+                   
+                     <div class="card-body">
+                        <form  action="/profile/update"  method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{Session::get('user')->id}}">
+
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputFirstName">First name</label>
-                                    <input class="form-control" id="inputFirstName" name="first_name" type="text" placeholder="Enter your first name" value="Valerie">
+                                    <input class="form-control" id="inputFirstName" name="first_name" type="text" placeholder="Enter your first name" value="selleoui">
                                 </div>
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLastName">Last name</label>
-                                    <input class="form-control" id="inputLastName" name="last_name" type="text" placeholder="Enter your last name" value="Luna">
+                                    <input class="form-control" id="inputLastName" name="last_name" type="text" placeholder="Enter your last name" value="imen">
                                 </div>
                             </div>
                             <!-- Form Row        -->
@@ -168,7 +130,7 @@
                                 <!-- Form Group (address)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputLocation">Address</label>
-                                    <input class="form-control" id="inputLocation" name="address" type="text" placeholder="Enter your location" value="San Francisco, CA">
+                                    <input class="form-control" id="inputLocation" name="address" type="text" placeholder="Enter your location" value="monastir">
                                 </div>
                             </div>
                            
@@ -177,18 +139,19 @@
                                 <!-- Form Group (phone number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputPhone">Phone number</label>
-                                    <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder="Enter your phone number" value="555-123-4567">
+                                    <input class="form-control" id="inputPhone" type="tel" name="phone" placeholder="Enter your phone number" value="216">
                                 </div>
                                 <!-- Form Group (birthday)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                    <input class="form-control" id="inputBirthday" type="text" name="dob" placeholder="Enter your birthday" value="06/10/1988">
+                                    <input class="form-control" id="inputBirthday" type="text" name="dob" placeholder="Enter your birthday" value="1980-10-06">
                                 </div>
                             </div>
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="button">Save changes</button>
+                            <button class="btn btn-primary" type="submit">Save changes</button>
                         </form>
                     </div>
+              
                 </div>
             </div>
         </div>

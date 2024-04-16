@@ -108,12 +108,12 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Mon Ya</span>
+                            <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="/profile" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                          
+                            <a href="/signout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -141,19 +141,19 @@
                             </thead>
                             <tbody>
 
-                                @if ($historique->count() > 0)
+                                @if ($historiques->count() > 0)
                                 <h2>Historique des traitements :</h2>
                                 <ul>
-                                    @foreach ($historique as $traitement)
+                                    @foreach ($historiques as $historique)
                                        
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>{{ $traitement->medicament }}</td>
-                                    <td>{{ $traitement->periode_traitment }}</td>
-                                    <td>{{ $traitement->start_date }}</td>
-                                    <td>{{ $traitement->end_date }}</td>
+                                    <td>{{ $historique->traitment->medicament->name }}</td>
+                                    <td>{{ $historique->traitment->periode_traitment}}</td>
+                                    <td>{{ $historique->traitment->start_date }}</td>
+                                    <td>{{ $historique->traitment->end_date }}</td>
                                     <td> <li class="list-inline-item">
-                                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                        <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="/history/{{$historique->id}}"><i class="fa fa-trash"></i></a>
                                     </li></td>
                                 </tr>
                                 @endforeach

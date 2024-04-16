@@ -10,7 +10,8 @@ class Prise_horaire extends Model
     use HasFactory;
 
     protected $fillable = [
-        'heure_prise'
+        'heure',
+        'traitment_id',
     ];
 
     public function traitment()

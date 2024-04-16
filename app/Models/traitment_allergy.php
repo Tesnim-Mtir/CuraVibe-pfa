@@ -24,4 +24,7 @@ class traitment_allergy extends Model
     {
         return $this->belongsTo(Allergie ::class);
     }
+
+
+
 }

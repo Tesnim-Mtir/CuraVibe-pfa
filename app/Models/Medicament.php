@@ -16,4 +16,11 @@ class Medicament extends Model
     {
         return $this->hasMany(Traitment::class);
     }
+
+
+    public function allergies()
+{
+    return $this->belongsToMany(Allergie::class);
+}
+
 }

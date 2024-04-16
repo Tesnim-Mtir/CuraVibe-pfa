@@ -29,10 +29,21 @@ Route::get('/don', function () {
 
 Route::get('/traitment', [UserController::class, 'newtraitment']);
 Route::POST('/traitment/add', [UserController::class, 'addnewtraitment']);
-Route::get('/history', [UserController::class, 'history']);
+// routes/web.php
+
+Route::get('/traitement/{id}', [UserController::class, 'delete']);
+
+Route::get('/history', [UserController::class, 'history'])->name('history');
+Route::get('/history/{id}', [UserController::class, 'historydelete']);
 Route::get('/profile', [UserController::class, 'profile']);
-Route::get('/ongoing', [UserController::class, 'ongoing']);
+Route::POST('/profile/update', [UserController::class, 'update']);
+//Route::match(['get', 'post'], 'profile/update', [UserController::class, 'update'])->name('profile.update');
+
+Route::get('/ongoing', [UserController::class, 'ongoing'])->name('ongoing');
 Route::get('/register', [UserController::class, 'register']);
+Route::post('/signup', [UserController::class, 'signup']);
+Route::get('/signout', [UserController::class, 'signout']);
+Route::post('/login', [UserController::class, 'login']);
 
 
 

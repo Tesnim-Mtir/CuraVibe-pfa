@@ -5,6 +5,8 @@ use App\Services\SmsService;
 use App\Models\Traitment;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Twilio\Rest\Client;
+use App\Notifications\MedicationReminderNotification;
 
 class SendMedicationReminders extends Command
 {
@@ -31,21 +33,23 @@ class SendMedicationReminders extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
-    {
-        //
+   
 
-        
-        $now = Carbon::now();
-        $traitements = Traitment::where('is_current', true)->get();
-
-        foreach ($traitements as $traitement) {
-                // Vérifiez si c'est l'heure de prise du traitement
-            if ($now->format('H:i') == $traitement->heure_de_prise) {
-                // Envoyez un SMS à l'utilisateur
-                $message = "Il est temps de prendre votre médicament.";
-                $this->smsService->sendSms($traitement->user->phone_number, $message);
-            }
-    }
-}
+     public function handle()
+     {
+         $currentHour = now()->hour;
+ 
+         // Récupérer tous les traitements actifs pour lesquels le temps de prise correspond à l'heure actuelle
+         $treatments = Traitment::where('temps_prise', $currentHour)
+             ->where('is_current', true) // S'assurer que le traitement est en cours
+             ->get();
+ 
+         foreach ($treatments as $treatment) {
+             $treatment->user->notify(new MedicationReminderNotification());
+         }
+ 
+         $this->info('Rappels envoyés avec succès.');
+     }
+ 
+    
 }

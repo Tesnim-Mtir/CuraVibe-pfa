@@ -33,7 +33,7 @@ class UpdateTraitmentsStatus extends Command
 
         // Parcourir tous les traitements et vérifier la date de fin
         foreach ($traitements as $traitement) {
-            if ($traitement->end_date && $traitement->end_date <= $now) {
+            if ($traitement->end_date && $traitement->end_date >= $now) {
                 // Mettre à jour is_current à false
                 $traitement->is_current = false;
                 $traitement->save();

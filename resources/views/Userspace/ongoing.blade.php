@@ -66,7 +66,7 @@
                  
                     <a href="/ongoing" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ongoing</a>
                     <a href="/history" class="nav-item nav-link"><i class="fas fa-history"></i></i>History</a>
-                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Stock</a>
+                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                  
                     
@@ -116,12 +116,12 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Mon Ya</span>
+                            <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="/profile" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                       
+                            <a href="/signout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -155,26 +155,30 @@
                                   @foreach ($traitements as $traitement)
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>{{ $traitement->medicament }}</td>
-                                        <td>{{ $traitement->Periode_Traitment}}</td>
+                                        <td>{{ $traitement->medicament->name }}</td>
+                                        <td>{{ $traitement->periode_traitment}}</td>
                                         <td>{{ $traitement->start_date}}</td>
                                         <td>{{ $traitement->end_date }}</td>
                                         
                                         <td>
-                                          <ul>
-                                            @foreach ($traitement->heuresPrise as $heurePrise)
-                                                <li>{{ $heurePrise->heure }}</li>
+                                    
+                                           
+                                         <ul>
+                                            @foreach ($prisesHoraires[$traitement->id] as $prise)
+                                                <li>{{ $prise->heure }}</li>
                                             @endforeach
                                         </ul>
+                                         
+                                     
                                         </td>
                                         <td>   
                                             <ul class="list-inline m-0">
                                           
                                             <li class="list-inline-item">
-                                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <!--button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button-->
                                             </li>
                                             <li class="list-inline-item">
-                                                <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="/traitement/{{$traitement->id}}"><i class="fa fa-trash"></i></a>
                                             </li>
                                          </ul>
                                         </td>

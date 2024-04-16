@@ -71,9 +71,17 @@
         </div>
         <div class="forms">
             <div class="form-content">
+                @if (Session::has('status')   )
+                <div class="alert alert-danger">
+                    {{Session::get('status')}}
+                </div>
+                    
+             
+                    
+                @endif
                 <div class="login-form">
                     <div class="title">Log in</div>
-                    <form action="" method="POST">
+                    <form action="login" method="POST">
                         @csrf
                         <div class="input-boxes">
                             <div class="input-box">
@@ -84,7 +92,7 @@
                                 <i class="fas fa-lock"></i>
                                 <input type="password" name ="password" placeholder="Enter your password" required>
                             </div>
-                                <input type="hidden" name="loginSubmit" value="true">
+                               
 
                             <div class="button input-box">
                                 <input type="submit" value="Submit">
@@ -97,7 +105,7 @@
                 </div>
                 <div class="signup-form">
                     <div class="title">Sign up</div>
-                    <form action="/register" method="">
+                    <form action="/signup" method="post">
                         @csrf
                         <div class="input-boxes">
                             <div class="input-box">
@@ -109,6 +117,10 @@
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
                                 <input type="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-phone"></i>
+                                <input type="text" name="phone" placeholder="Enter your phone" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>

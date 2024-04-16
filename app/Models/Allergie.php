@@ -25,4 +25,10 @@ class Allergie extends Model
     {
         return $this->hasMany(traitment_allergy::class);
     }
+
+    public function medicaments()
+{
+    return $this->belongsToMany(Medicament::class);
+}
+
 }

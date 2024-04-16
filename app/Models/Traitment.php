@@ -9,7 +9,13 @@ class Traitment extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'user_id',
+        'medicament_id',
+        'periode_traitment',
+        'start_date',
+        'end_date',
+    ];
     public function prisesHoraires()
     {
         return $this->hasMany(Prise_horaire::class);
@@ -22,6 +28,10 @@ class Traitment extends Model
         return $this->belongsTo(Medicament::class);
     }
 
+    public function historique()
+    {
+        return $this->hasOne(Historique::class);
+    }
 
     public function notification()
     {
@@ -40,6 +50,10 @@ class Traitment extends Model
         return $this->hasMany(traitment_allergy::class);
     }
 
-
+    public function allergies()
+    {
+        return $this->belongsToMany(Traitment_Allergy::class);
+    }
+    
    
 }
