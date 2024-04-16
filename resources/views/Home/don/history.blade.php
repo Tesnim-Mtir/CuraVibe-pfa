@@ -79,7 +79,7 @@
                               <td class="status">
                                 <span class="active">
                                     @if(empty($donation->status))
-                                        disponible
+                                    Libre
                                     @else
                                         réservé
                                     @endif

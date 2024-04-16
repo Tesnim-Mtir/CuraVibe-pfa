@@ -33,6 +33,7 @@ Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details'
 
 Route::get('/add', [DonationController::class, 'create'])->name('donation.create');
 Route::post('/add', [DonationController::class, 'store'])->name('donation.store');
+Route::post('/don/{id}', 'DonationController@updateStatus')->name('don.updateStatus');
 
 
 

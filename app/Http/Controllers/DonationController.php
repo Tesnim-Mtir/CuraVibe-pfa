@@ -94,5 +94,16 @@ class DonationController extends Controller
         return redirect()->back()->with('error', 'Failed to delete donation: ' . $e->getMessage());
     }
 }
+public function updateStatus($id)
+{
+    try {
+        $donation = Don::findOrFail($id);
+        $donation->status = 'reserve'; 
+        $donation->save();
+        return response()->json(['success' => 'Status updated successfully!']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Failed to update status: ' . $e->getMessage()], 500);
+    }
+}
 
 }
