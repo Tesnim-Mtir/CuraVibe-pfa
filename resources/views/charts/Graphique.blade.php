@@ -103,6 +103,7 @@
                                 // Créer le graphique initial lors du chargement de la page
                                 $.ajax({
                                     url: "{{ route('graphique') }}",
+                                    
                                     method: "GET",
                                     data: { year: "{{ date('Y') }}" },
                                     success: function(data) {
@@ -112,7 +113,7 @@
                                             data: {
                                                 labels: data.labels,
                                                 datasets: [{
-                                                    label: 'Nombre de Dones par mois',
+                                                    label: 'Nombre des Dones par mois',
                                                     data: data.data,
                                                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                                                     borderColor: 'rgba(255, 99, 132, 1)',

@@ -94,6 +94,7 @@ public function donutChart()
                         ->select('id', 'user_id', 'description_id', 'created_at as date')
                         ->get();
 
+                        
         // Fetch recycle data
         $recycleData = Recycle::with('user', 'description')
                               ->whereBetween('created_at', [$startDate, $endDate])
