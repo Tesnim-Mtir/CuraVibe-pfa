@@ -19,6 +19,16 @@ class DonationController extends Controller
         
         
     }}
+    public function history()
+    {
+        try {
+            $donations = Don::all(); 
+            return view('home.don.history', compact('donations'));
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            
+            
+        }}
  
     public function home()
     {
@@ -46,6 +56,7 @@ class DonationController extends Controller
             'utilisateur' => 'nullable|string',
             'numero' => 'nullable|string',
             'etat' => 'nullable|string',
+            'status' => 'nullable|string',
             'quantite' => 'nullable|string',
             'description' => 'required|string',
             'image' => 'required|image|max:2048', 
@@ -57,6 +68,7 @@ class DonationController extends Controller
         $donation->utilisateur = $validatedData['utilisateur'] ?? null;
         $donation->numero = $validatedData['numero'] ?? null;
         $donation->etat = $validatedData['etat'] ?? null;
+        $donation->status = $validatedData['status'] ?? null;
         $donation->quantite = $validatedData['quantite'] ?? null;
         $donation->description = $validatedData['description'];
     
@@ -72,4 +84,15 @@ class DonationController extends Controller
         // Redirect the user
         return redirect()->route('don.index')->with('success', 'Donation added successfully!');
     }
+    public function destroy($id)
+{
+    try {
+        $donation = Don::findOrFail($id);
+        $donation->delete();
+        return redirect()->route('don.history')->with('success', 'Donation deleted successfully!');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Failed to delete donation: ' . $e->getMessage());
+    }
+}
+
 }

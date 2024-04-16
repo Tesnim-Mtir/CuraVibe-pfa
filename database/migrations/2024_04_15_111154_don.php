@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('utilisateur')->nullable();
             $table->string('numero')->nullable();
             $table->string('etat')->nullable();
+            $table->string('status')->nullable();
             $table->string('nom');
             $table->string('quantite')->nullable();
             $table->text('description')->nullable();
