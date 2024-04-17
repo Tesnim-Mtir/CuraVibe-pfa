@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Allergy_user;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Traitment;
 use App\Models\Historique;
 use App\Models\Medicament;
 use App\Models\User;
+use App\Models\Allergie;
 
 use App\Models\traitment_allergy;
 
@@ -92,8 +94,12 @@ if($traitment)
 
    public function newtraitment()
    {
-      return view('Userspace.newtraitment');
+    $medicament=Medicament::all();
+      return view('Userspace.newtraitment',['medicament'=>$medicament]);
    }
+
+
+
 
    public function ongoing()
    {
@@ -161,6 +167,61 @@ public function historydelete($id)
     
     return redirect()->back()->with('success', 'historique supprimé avec succès.');
 }
+
+//allergy******************************************
+
+
+public function showallergy()
+{
+    $user=Session::get('user');
+
+  
+    $allergies = Allergie::all();
+    $allergies_user=$user->allergyUsers()->get();
+
+
+    $allergys = [];
+ 
+  
+    foreach ($allergies_user as $al) {
+      
+        $allergy = $al->allergy;
+ 
+        $allergys[] = $allergy->name;
+    }
+
+    return view('Userspace.allergies' ,['allergies' => $allergies,'allergys' => $allergys]);
+
+}
+
+public function addallergy(Request $request)
+{
+    $request->validate(
+        ['name'=>'required',
+        ]
+      );
+
+      $user=Session::get('user');
+      $allery_user=new Allergy_user();
+      $allergy = Allergie::where('name', $request->name)->first();
+      if ($allergy) {
+        // Créer une nouvelle relation allergy_user
+        $allergy_user = $user->allergyUsers()->create([
+            'allergy_id' => $allergy->id,
+        ]);
+    
+    
+     return redirect()->back()->with('success', 'Allergy added successfully.');
+    } else {
+       
+        return redirect()->back()->with('error', 'Allergy not found.');
+    }
+
+
+
+
+}
+
 //Profile*****************************************
 
 

@@ -8,14 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-<style>
-    footer{
-        position:fixed;
-        bottom: 0%;
-        width: 100%;
-        margin-right: 5%;
-    }
-    </style>
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -40,7 +33,6 @@
 </head>
 
 <body>
-   
     <div class="container-xxl position-relative bg-white d-flex p-0">
     
 
@@ -86,9 +78,9 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-               
+              
                 <div class="navbar-nav align-items-center ms-auto">
-                   
+                  
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
@@ -120,7 +112,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="/profile" class="dropdown-item">My Profile</a>
-                       
+                          
                             <a href="/signout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -130,71 +122,78 @@
 
 
             <!-- Sale & Revenue Start -->
+          
+            <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="col-12">
-                    <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Ongoing Traitment</h6>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">medicament</th>
-                                        <th scope="col">Periode Traitment</th>
-                                        <th scope="col">debut traitment</th>
-                                        <th scope="col">fin traitment</th>
-                                        <th scope="col">Heure de prise</th>
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">put Allergy</h6>
+                            <form action="/allergy/add" method="post">
+                                @csrf
+                                <div class="form-floating mb-3">
+
+                                    <select class="form-select" id="floatingSelect"
+                                        aria-label="Floating label select example" name="name" required>
+                                        <option selected></option>
+
+                                        @foreach ($allergies  as $allergie)
+                                          <option >{{$allergie->name}}</option>
+                                        @endforeach
+                                      
                                        
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($traitements->count() > 0)
-                                           <h2>Traitements en cours :</h2>
-                                              
-                                  @foreach ($traitements as $traitement)
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>{{ $traitement->medicament->name }}</td>
-                                        <td>{{ $traitement->periode_traitment}}</td>
-                                        <td>{{ $traitement->start_date}}</td>
-                                        <td>{{ $traitement->end_date }}</td>
-                                        
-                                        <td>
-                                    
-                                           
-                                         <ul>
-                                            @foreach ($prisesHoraires[$traitement->id] as $prise)
-                                                <li>{{ $prise->heure }}</li>
-                                            @endforeach
-                                        </ul>
-                                         
-                                     
-                                        </td>
-                                        <td>   
-                                            <ul class="list-inline m-0">
-                                          
-                                            <li class="list-inline-item">
-                                                <!--button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button-->
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="/traitement/{{$traitement->id}}"><i class="fa fa-trash"></i></a>
-                                            </li>
-                                         </ul>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                
-                            @else
-                                <p>Aucun traitement en cours pour le moment.</p>
-                            @endif
+                                    </select>
                                    
-                                </tbody>
-                            </table>
+                                </div>
+                              
+                              
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </form>
                         </div>
+                    </div>
+                    
+               
+                
+                </div>
+            </div>
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-3">
+                    <h6 class="mb-4">User Allergy</h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th> </th>
+                                    <th scope="col">Allergy Name</th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                     $i = 1;
+                                @endphp
+                                @foreach  ($allergys as $allergy)
+                                <tr>
+                                    <th scope="row">{{ $i++ }}</th>
+                                    <th> </th>
+                                    <td>{{ $allergy}}</td>
+                                
+                                </tr>
+                                @endforeach
+                            
+                              
+                              
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+            <!-- Form End -->
             <!-- Sale & Revenue End -->
 
 
@@ -203,8 +202,7 @@
 
 
             <!-- Footer Start -->
-        <footer >
-            
+         
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
@@ -219,7 +217,7 @@
             </div>
       
             <!-- Footer End -->
-        </footer>
+        
     </div>
     
         <!-- Content End -->

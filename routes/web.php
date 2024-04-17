@@ -28,12 +28,17 @@ Route::get('/don', function () {
 /*Userspace Routes*/
 
 Route::get('/traitment', [UserController::class, 'newtraitment']);
+
 Route::POST('/traitment/add', [UserController::class, 'addnewtraitment']);
-// routes/web.php
+
 
 Route::get('/traitement/{id}', [UserController::class, 'delete']);
 
 Route::get('/history', [UserController::class, 'history'])->name('history');
+
+Route::get('/allergy', [UserController::class, 'showallergy']);
+//Route::get('/allergys', [UserController::class, 'showallergy_user']);
+Route::post('/allergy/add', [UserController::class, 'addallergy']);
 Route::get('/history/{id}', [UserController::class, 'historydelete']);
 Route::get('/profile', [UserController::class, 'profile']);
 Route::POST('/profile/update', [UserController::class, 'update']);

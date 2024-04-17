@@ -58,7 +58,7 @@
                  
                     <a href="/ongoing" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ongoing</a>
                     <a href="/history" class="nav-item nav-link"><i class="fas fa-history"></i></i>History</a>
-                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
+                    <a href="/allergy" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                  
                     

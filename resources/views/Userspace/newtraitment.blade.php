@@ -60,7 +60,7 @@
                  
                     <a href="/ongoing" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ongoing</a>
                     <a href="/history" class="nav-item nav-link"><i class="fas fa-history"></i></i>History</a>
-                    <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
+                    <a href="/allergy" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                  
                     
@@ -141,7 +141,15 @@
 
                             <div class="mb-3">
                                 <label for="" class="form-label">Name medicament</label>
-                                <input type="text" class="form-control" name="medicament" >
+                                <!--input type="text" class="form-control" name="medicament" -->
+                                <select class="form-select mb-3" aria-label="Default select example" name="medicament" required>
+                                    <option selected></option>
+                                     @foreach ($medicament as $md )
+                                     <option value="1">{{$md->name}}</option>
+                                     @endforeach
+                                   
+                                  
+                                </select>
                               
                               
                             </div>
@@ -150,18 +158,18 @@
 
                             <div class="mb-3">
                                 <label for="" class="form-label">Periode Traitment</label>
-                                <input type="number" class="form-control" name="periode_traitment">
+                                <input type="number" class="form-control" name="periode_traitment" required>
                               
                             </div>
 
                             <div class="mb-3">
                                 <label for="" class="form-label">debut traitment</label>
-                                <input type="date" class="form-control" name="start_date">
+                                <input type="date" class="form-control" name="start_date" required>
                               
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">fin traitment</label>
-                                <input type="date" class="form-control" name="end_date">
+                                <input type="date" class="form-control" name="end_date" required>
                               
                             </div>
 
