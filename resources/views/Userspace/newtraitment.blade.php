@@ -126,10 +126,24 @@
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
                 @if(session('warning'))
-                      <div class="alert alert-warning">
-                            {{ session('warning') }}
-                     </div>
+                     
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle me-2"></i> {{ session('warning') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                           
+                    
                 @endif
+
+                @if(session('success'))
+              
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-circle me-2"></i> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                     
+             
+               @endif
 
                 <div class="row justify-content-center">
                 <div class="col-sm-12 col-xl-6">
@@ -145,7 +159,7 @@
                                 <select class="form-select mb-3" aria-label="Default select example" name="medicament" required>
                                     <option selected></option>
                                      @foreach ($medicament as $md )
-                                     <option value="1">{{$md->name}}</option>
+                                     <option >{{$md->name}}</option>
                                      @endforeach
                                    
                                   

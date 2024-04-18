@@ -39,7 +39,7 @@ class UserController extends Controller
       $traitment = new Traitment();
       $medicament = Medicament::where('name', $request->medicament)->first();
     
-    // dd($medicament);
+   // dd($medicament);
       
       $userAllergies = Session::get('user')->allergyUsers->pluck('allergy.name')->toArray();
 
@@ -47,15 +47,13 @@ class UserController extends Controller
     
      
 
-      if (in_array( $request->DCI, $userAllergies)) {
-       // $traitmentAllergique = new Traitment_Allergy();
-       // $traitmentAllergique->traitment_id = $traitment->id;
-       // $traitmentAllergique->allergy_id = $request->allergy_id; 
-
+      if (in_array( $medicament->DCI, $userAllergies)) {
+      
+    
         return back()->with('warning', 'Attention: Vous avez une allergie à ce médicament.');
     }
 
-    if ($medicament) {
+   else if ($medicament) {
       $traitment = $user->traitements()->create(
         [
            
@@ -64,7 +62,7 @@ class UserController extends Controller
             'start_date'=>$request->start_date,
             'end_date'=>$request->end_date,
         ]);
-        //$request->except('_token'));
+       
       }
      // dd(  $traitment);
    // dd($request->heure);
@@ -80,13 +78,11 @@ if($traitment)
     
 }
 
-     
-      
-              
-          
-                  $this->storeHistorique($traitment->id);
-               return redirect()->route('history')
-               ->with('success', 'Traitment created successfully.');
+     $this->storeHistorique($traitment->id);
+      return back()->with('success', 'Traitment created successfully.');
+    
+
+               
     
  
    }
@@ -212,11 +208,7 @@ public function addallergy(Request $request)
     
     
      return redirect()->back()->with('success', 'Allergy added successfully.');
-    } else {
-       
-        return redirect()->back()->with('error', 'Allergy not found.');
-    }
-
+    } 
 
 
 
