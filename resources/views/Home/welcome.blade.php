@@ -245,6 +245,54 @@ Gestion des stocks de médicaments :
 
     </section><!-- End Portfolio Section -->
 
+  <!-- ======= Pharmacies Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="section-title">
+      <h2>Cabinets Médicaux</h2>
+    </div>
+    <div class="main-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="content">
+      <h2 style="color: #47b2e4;"> <strong>Trouver des cabinets médicaux à proximité</strong></h2>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <form id="search-form" name="gs" method="POST" action="{{ route('search.cliniques') }}" role="search">
+              @csrf
+              <div class="row">
+                <div class="col-lg-3 align-self-center">
+                    <fieldset>
+                        <select name="area" class="form-select" aria-label="Area" id="chooseCategory" >
+                            <option value="Monastir">Monastir</option>
+                            <option value="Sousse">Sousse</option>
+                            <option value="Mahdia">Mahdia</option>
+                            <option value="Tunis">Tunis</option>
+  
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                    <fieldset>
+                        <input type="time" name="time" class="searchText" placeholder="Enter Prefered Time" autocomplete="on" >
+                    </fieldset>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                 
+                </div>
+                <div class="col-lg-3">                        
+                    <fieldset>
+                        <button  class="main-button"><i class="fa fa-search"></i>Rechercher maintenant</button>
+                    </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> <!-- End Portfolio Section -->
 
 
  
@@ -319,6 +367,7 @@ Gestion des stocks de médicaments :
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  
   <script src="assets/1/vendor/aos/aos.js"></script>
   <script src="assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/1/vendor/glightbox/js/glightbox.min.js"></script>

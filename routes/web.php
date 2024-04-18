@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\CliniqueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use App\Http\Controllers\DonationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/cabinet', [CliniqueController::class, 'search'])->name('search.cliniques');
 
 Route::get('/', function () {
     return view('home/welcome');
@@ -28,6 +30,8 @@ Route::delete('/edit/{id}', [DonationController::class, 'destroy'])->name('don.d
 Route::get('/', [DonationController::class, 'home']);
 
 Route::get('/don', [DonationController::class, 'index'])->name('don.index');
+Route::get('/cabinet', [CliniqueController::class, 'index'])->name('cabinet.index');
+
 
 Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details');
 
