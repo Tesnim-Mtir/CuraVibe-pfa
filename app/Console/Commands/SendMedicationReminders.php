@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 use App\Services\SmsService;
 use App\Models\Traitment;
+use App\Models\Prise_horaire;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Twilio\Rest\Client;
@@ -37,19 +38,34 @@ class SendMedicationReminders extends Command
 
      public function handle()
      {
-         $currentHour = now()->hour;
+        $currentHour = Carbon::now()->hour;
  
-         // Récupérer tous les traitements actifs pour lesquels le temps de prise correspond à l'heure actuelle
-         $treatments = Traitment::where('temps_prise', $currentHour)
-             ->where('is_current', true) // S'assurer que le traitement est en cours
-             ->get();
- 
-         foreach ($treatments as $treatment) {
-             $treatment->user->notify(new MedicationReminderNotification());
-         }
- 
+
+        $treatments = Traitment::where('is_current', true)->get();
+
+        foreach ($treatments as $treatment) {
+          
+            $heuresPrises = $treatment->prisesHoraires()->where('heure', $currentHour)->get();
+
+        }
+               // Parcourir les heures de prise et envoyer un rappel si nécessaire
+        foreach ($heuresPrises as $heurePrise) {
+            // Utilisez la notification pour envoyer un rappel à l'utilisateur
+            $heurePrise->user->notify(new MedicationReminderNotification());
+        }
+   
          $this->info('Rappels envoyés avec succès.');
      }
+
+
+
+    
+
+  
+      
+   
+
+   
+}
  
     
-}

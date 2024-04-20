@@ -29,24 +29,26 @@ class MedicationReminderNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail','twilio','database'];
+        return ['twilio'];
     }
 
     /**
      * Get the mail representation of the notification.
-     */
-    public function toMail($notifiable)
+    */
+  /*  public function toMail($notifiable)
     {
         return (new MailMessage)
                     ->subject('Rappel de prise de médicaments')
                     ->line('C\'est le moment de prendre votre médicament !');
-    }
-
+    } 
+*/
 
     public function toTwilio($notifiable)
-    {
-        return (new Client())->messages->create(
-            $notifiable->routeNotificationForTwilio(),
+    {   $phoneNumber = $notifiable->routeNotificationForTwilio();
+        $twilio = new Client(config('services.twilio.sid'), config('services.twilio.token'));
+    
+        $twilio->messages->create(
+            $phoneNumber, 
             [
                 'from' => config('services.twilio.from'),
                 'body' => 'C\'est le moment de prendre votre médicament !'
@@ -56,12 +58,12 @@ class MedicationReminderNotification extends Notification
 
 
 
-    public function toDatabase($notifiable)
-{
-    return [
-        'message' => 'C\'est le moment de prendre votre médicament !'
-    ];
-}
+   // public function toDatabase($notifiable)
+//{
+   // return [
+       // 'message' => 'C\'est le moment de prendre votre médicament !'
+    //];
+//}
 
 
     /**

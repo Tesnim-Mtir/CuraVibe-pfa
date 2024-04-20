@@ -242,7 +242,7 @@ public function addallergy(Request $request)
     $user->profile->delete();
 
 }
-    $user-> profile()->create([
+    $user-> profile()->update([
        
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name'),
