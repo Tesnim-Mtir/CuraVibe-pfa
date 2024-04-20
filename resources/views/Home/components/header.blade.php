@@ -11,6 +11,7 @@
        
           <li><a class="nav-link scrollto " href="/">Acceuil</a></li>
           <li><a class="nav-link scrollto " href="don">Don</a></li>
+          <li><a class="nav-link scrollto " href="contact">Contact</a></li>
 
         
           </a></li>

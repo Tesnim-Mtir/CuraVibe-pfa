@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -29,6 +30,7 @@ Route::get('/don', function () {
 });
 
 
+
 Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
 
 Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
@@ -39,4 +41,7 @@ Route::get('/Graphique', [UserController::class,'search'])->name('graphique');
 Route::get('/Graphique', function () {
     return view('charts/Graphique');
 });
+Route::get('/welcome', [ContactController::class, 'contact']);
+Route::post('/welcome', [ContactController::class, 'submitForm'])->name('submitForm');
+
 

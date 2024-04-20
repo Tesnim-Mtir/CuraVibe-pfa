@@ -10,6 +10,7 @@ use App\Models\Recycle;
 use Illuminate\Support\Facades\DB; // Import the DB facade
 
 class ChartJSController extends Controller
+
 {
     public function graphique(Request $request)
     {
