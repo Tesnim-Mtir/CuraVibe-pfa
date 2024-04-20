@@ -53,7 +53,9 @@
           <li><a class="nav-link scrollto active" href="#hero">Acceuil</a></li>
           <li><a class="nav-link scrollto" href="#about">A Propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-         <li><a class="nav-link   scrollto" href="don">Don</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Cabinets</a></li>
+
+         <li><a class="nav-link   scrollto" href="#don">Don</a></li>
   
          <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>
                   </a></li>
@@ -201,14 +203,14 @@ Gestion des stocks de médicaments :
             <p> Découvrez une nouvelle manière d'accéder aux soins de santé.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Inscrivez-vous</a>
+            <a class="cta-btn align-middle" href="inscription">Inscrivez-vous</a>
           </div>
         </div>
 
       </div>
     </section><!-- End Cta Section -->
  <!-- ======= Don Section ======= -->
- <section id="portfolio" class="portfolio">
+ <section id="don" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">

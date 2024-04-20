@@ -77,10 +77,12 @@
                               <td>{{ $donation->description }}</td>
 
                               <td class="status">
-                                <span class="active">
+                                
                                     @if(empty($donation->status))
+                                    <span class="active">
                                     Libre
                                     @else
+                                    <span class="waiting">
                                         réservé
                                     @endif
                                 </span>
