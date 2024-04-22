@@ -60,12 +60,12 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider ">
+              <div class=" align-items-center">
 
-                <div class="swiper-slide">
-                  <img src="{{ asset('assets/1/img/' . $donation->image) }}" alt="{{ $donation->nom }}" width="50" height="700">
+                <div class="">
+                  <img src="{{ asset('assets/1/img/' . $donation->image) }}" alt="{{ $donation->nom }}" >
 
                 </div>
 
@@ -75,7 +75,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="portfolio-info">
               
               <p><strong>Nom:</strong> {{ $donation->nom }}</p>
