@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 use App\Services\SmsService;
 use App\Models\Traitment;
 use App\Models\Prise_horaire;
+use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Twilio\Rest\Client;
@@ -48,9 +49,8 @@ class SendMedicationReminders extends Command
             $heuresPrises = $treatment->prisesHoraires()->where('heure', $currentHour)->get();
 
         }
-               // Parcourir les heures de prise et envoyer un rappel si nécessaire
+              
         foreach ($heuresPrises as $heurePrise) {
-            // Utilisez la notification pour envoyer un rappel à l'utilisateur
             $heurePrise->user->notify(new MedicationReminderNotification());
         }
    

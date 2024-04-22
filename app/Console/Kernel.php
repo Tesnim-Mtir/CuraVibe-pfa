@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('app:update-traitments-status')->daily();
-        $schedule->command('app:send-medication-reminders')->everyMinute();
+        $schedule->command('app:send-medication-reminders')->hourly();
     }
 
     /**
