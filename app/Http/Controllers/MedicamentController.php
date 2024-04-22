@@ -16,7 +16,26 @@ class MedicamentController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   // Validation des champs du formulaire
+        $this->validate($request, [
+            "Nom" => "required",
+            "Dosage" => "required",
+            "Forme" => "required",
+            "Présentation" => "required",
+            "DCI" => "required|size:9",
+            "Classe" => "required",
+            "Sous_Classe" => "nullable",
+            "Laboratoire" => "required",
+            "AMM" => "nullable",
+            "Date_AMM" => "nullable",
+            "Conditionnement_Primaire" => "required",
+            "tableau" => "required",
+            "Durée_de_Conservation" => "required",
+            "Indications" => "required",
+            "G_P_B" => "required",
+            "VEIC" => "required"
+        ]);
+
         $medicament = new Medicament();
         $medicament->Nom = $request->Nom;
         $medicament->Dosage = $request->Dosage;
@@ -78,9 +97,10 @@ class MedicamentController extends Controller
             "G_P_B" => "required",
             "VEIC" => "required"
         ]);
-
-        // Find the medicament instance
-        $medicament = Medicament::findOrFail($id);
+        $id=$request->id_medicament;
+ 
+                // Find the medicament instance
+        $medicament = Medicament::find($id);
 
         // Update the attributes
         $medicament->Nom = $request->Nom;
@@ -102,9 +122,12 @@ class MedicamentController extends Controller
         $medicament->VEIC = $request->VEIC;
 
         // Save the changes
-        $medicament->save();
+        if ($medicament->save()) {
+            return back()->with('success', 'le medicament a été modifié!');
+        } else {
+            return back()->with('error', 'Une erreur est survenue!');
+        }
 
-        // Redirect back with success message
-        return back()->with('success', 'Medicament mis à jour avec succès!');
+   
     }
 }

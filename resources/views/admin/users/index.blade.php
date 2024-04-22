@@ -301,9 +301,7 @@
                         <div>
                             <h1>liste des utilisateurs </h1>
                             <hr />
-                            <a data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                class="btn btn-primary mt-3">Ajouter medicament</a>
-
+                     
                             <div class="mt-3">
                                 <table class="table table-bordered">
                                     <thead>
@@ -311,15 +309,22 @@
                                             <th scope="col">id</th>
                                             <th scope="col">Nom</th>
                                             <th scope="col">e-mail</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $index => $u)
+                                        @foreach ($user as $index => $u)
                                             <tr>
                                                 <th scope="row">{{ $index }}</th>
                                                 <td>{{ $u->name }}</td>
                                                 <td>{{ $u->email }}</td>
-
+                                                <td> <a data-bs-toggle="modal"
+                                                        data-bs-target="#editUser{{ $u->id }}"
+                                                        class="btn btn-success">Modifier</a>
+                                                    <a onclick="return confirm('voulez-vous vraiment supprimer cet utilisateur?')"
+                                                        href="/admin/users/{{ $u->id }}/delete"
+                                                        class="btn btn-danger">Supprimer</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -351,130 +356,7 @@
 
 
 
-    <!--Modal Ajout-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajouter medicament</h5><button class="btn p-1"
-                        type="button" data-bs-dismiss="modal" aria-label="Close"><svg
-                            class="svg-inline--fa fa-times fa-w-11 fs--1" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 352 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
-                            </path>
-                        </svg><!-- <span class="fas fa-times fs--1"></span> Font Awesome fontawesome.com --></button>
-                </div>
-                <form action="/admin/medicament/store" method="post">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput1">Nom</label>
-                            <input name="nom" class="form-control" id="exampleFormControlInput1" type="text"
-                                placeholder="taper nom medciament">
-                        </div>
 
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput2">Dosage</label>
-                            <input name="dosage" class="form-control" id="exampleFormControlInput2" type="text"
-                                placeholder="taper dosage">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput3">Forme</label>
-                            <input name="forme" class="form-control" id="exampleFormControlInput3" type="text"
-                                placeholder="taper forme">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label"
-                                for="exampleFormControlInput4">Présentation</label>
-                            <input name="presentation" class="form-control" id="exampleFormControlInput4"
-                                type="text" placeholder="taper presentation">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput5">DCI</label>
-                            <input name="dci" class="form-control" id="exampleFormControlInput5" type="text"
-                                placeholder="taper DCI">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput6">Classe</label>
-                            <input name="classe" class="form-control" id="exampleFormControlInput6" type="text"
-                                placeholder="taper classe">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput7">Sous
-                                Classe</label>
-                            <input name="sous-classe" class="form-control" id="exampleFormControlInput7"
-                                type="text" placeholder="taper nom medciament">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label"
-                                for="exampleFormControlInput8">Laboratoire</label>
-                            <input name="labo" class="form-control" id="exampleFormControlInput8" type="text"
-                                placeholder="taper nom laboratoir">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput9">AMM</label>
-                            <input name="amm" class="form-control" id="exampleFormControlInput9" type="text"
-                                placeholder="taper nom medciament">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput10">Date
-                                AMM</label>
-                            <input name="dateamm" class="form-control" id="exampleFormControlInput10" type="text"
-                                placeholder="taper AMM">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput11">Conditionnement
-                                primaire</label>
-                            <input name="cp" class="form-control" id="exampleFormControlInput11" type="text"
-                                placeholder="taper les conditionnements primairs">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput12">Spécifocation
-                                Conditionnement primaire</label>
-                            <input name="specification" class="form-control" id="exampleFormControlInput12"
-                                type="text" placeholder="taper spécification primaire">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput13">tableau</label>
-                            <input name="tableau" class="form-control" id="exampleFormControlInput13" type="text"
-                                placeholder="taper tableau">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput14">Durée de
-                                conservation</label>
-                            <input name="duree" class="form-control" id="exampleFormControlInput14" type="number"
-                                placeholder="entrer la durée de consevation">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label"
-                                for="exampleFormControlInput15">Indications</label>
-                            <input name="indications" class="form-control" id="exampleFormControlInput15"
-                                type="text" placeholder="taper les indications">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput16">G/P/B</label>
-                            <input name="gpb" class="form-control" id="exampleFormControlInput16" type="text"
-                                placeholder="taper g/p/b">
-                        </div>
-
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput17">VEIC</label>
-                            <input name="veic" class="form-control" id="exampleFormControlInput17" type="text"
-                                placeholder="taper veic">
-                        </div>
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Okay</button>
-                        <button class="btn btn-outline-primary" type="button"
-                            data-bs-dismiss="modal">Cancel</button>
-                    </div>
-            </div>
-            </form>
-        </div>
-    </div>
 
     <script src="{{ asset('dashassets/js/phoenix.js') }}"></script>
     <script src="{{ asset('dashassets/js/ecommerce-dashboard.js') }}"></script>
