@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends \TCG\Voyager\Models\User
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory,  Notifiable,TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -43,4 +45,17 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $table = 'users';
+    public function recycles()
+    {
+    return $this->hasMany(Recycle::class);
+    }
+
+    public function don()
+    {
+    return $this->hasMany(Don::class);
+    }
+
 }
+
+

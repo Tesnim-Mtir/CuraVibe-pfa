@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
+use App\Models\Recycle;
+use App\Models\Don;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -10,3 +15,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 }
+class UserController extends Controller
+{
+    public function index()
+    {
+        $users = User::all();
+        
+        return view('Graphique', ['users' => $users]);
+       
+    } 
+    
+}
+

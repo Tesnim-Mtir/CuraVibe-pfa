@@ -53,11 +53,10 @@
           <li><a class="nav-link scrollto active" href="#hero">Acceuil</a></li>
           <li><a class="nav-link scrollto" href="#about">A Propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Cabinets</a></li>
-
-         <li><a class="nav-link   scrollto" href="#don">Don</a></li>
+         <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
+         <li><a class="nav-link   scrollto" href="contact">Contact</a></li>
   
-         <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>
+         <li><a class="getstarted scrollto" href="register">Inscription</a></li>
                   </a></li>
        
         </ul>
@@ -330,7 +329,11 @@ Gestion des stocks de médicaments :
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+        <form action="{{ route('submitForm') }}" role="form" class="php-email-form" method="POST">
+          @csrf
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Votre Nom</label>

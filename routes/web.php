@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CliniqueController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\ContactController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,10 +51,19 @@ Route::get('/1', function () {
     return view('home/don/add');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+
+
+Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
+
+Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
+Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
+Route::get('/Graphique', [UserController::class,'search'])->name('graphique');
+
+
+Route::get('/Graphique', function () {
+    return view('charts/Graphique');
 });
+Route::get('/welcome', [ContactController::class, 'contact']);
+Route::post('/welcome', [ContactController::class, 'submitForm'])->name('submitForm');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
