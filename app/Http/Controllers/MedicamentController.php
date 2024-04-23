@@ -11,7 +11,7 @@ class MedicamentController extends Controller
     public function index()
     {
 
-        $medicament = Medicament::all();
+        $medicament = Medicament::paginate(50);
         return view('admin.medicaments.index')->with('medicament', $medicament);
     }
 
@@ -22,15 +22,15 @@ class MedicamentController extends Controller
             "Dosage" => "required",
             "Forme" => "required",
             "Présentation" => "required",
-            "DCI" => "required|size:9",
+            "DCI" => "required",
             "Classe" => "required",
             "Sous_Classe" => "nullable",
             "Laboratoire" => "required",
             "AMM" => "nullable",
             "Date_AMM" => "nullable",
-            "Conditionnement_Primaire" => "required",
+            //"Conditionnement_Primaire" => "required",
             "tableau" => "required",
-            "Durée_de_Conservation" => "required",
+            //"Durée_de_Conservation" => "required",
             "Indications" => "required",
             "G_P_B" => "required",
             "VEIC" => "required"
@@ -59,13 +59,13 @@ class MedicamentController extends Controller
         return back()->with('success', 'medicament ajouté avec succées !');
     }
 
-    /*public function edit($id)
+    public function edit($id)
     {
-    $medicament = Medicament::findOrFail($id);
-    return view('admin.medicaments.edit', compact('medicament'))->with('success_update','medicament modifié avec succées !');
+        $medicament = Medicament::findOrFail($id);
+        return view('admin.medicaments.edit', compact('medicament'));
+    }
 
-    
-    }*/
+
     public  function destroy($id)
     {
         $medicament = Medicament::find($id);
@@ -76,30 +76,31 @@ class MedicamentController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+
         // Validation des champs du formulaire
         $this->validate($request, [
             "Nom" => "required",
             "Dosage" => "required",
             "Forme" => "required",
             "Présentation" => "required",
-            "DCI" => "required|size:9",
+           "DCI" => "required",
             "Classe" => "required",
             "Sous_Classe" => "nullable",
             "Laboratoire" => "required",
             "AMM" => "nullable",
             "Date_AMM" => "nullable",
-            "Conditionnement_Primaire" => "required",
+          "Conditionnement_Primaire" => "required",
             "tableau" => "required",
-            "Durée_de_Conservation" => "required",
+           "Durée_de_Conservation" => "required",   
             "Indications" => "required",
             "G_P_B" => "required",
             "VEIC" => "required"
         ]);
-        $id=$request->id_medicament;
- 
-                // Find the medicament instance
+        $id = $request->id_medicament;
+
+        // Find the medicament instance
         $medicament = Medicament::find($id);
 
         // Update the attributes
@@ -121,13 +122,12 @@ class MedicamentController extends Controller
         $medicament->G_P_B = $request->G_P_B;
         $medicament->VEIC = $request->VEIC;
 
+        
         // Save the changes
         if ($medicament->save()) {
             return back()->with('success', 'le medicament a été modifié!');
         } else {
             return back()->with('error', 'Une erreur est survenue!');
         }
-
-   
     }
 }

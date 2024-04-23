@@ -33,6 +33,4 @@ class User extends Authenticatable
     public static $rules = [
         // Vos règles de validation ici...
     ];
-
-   
 }

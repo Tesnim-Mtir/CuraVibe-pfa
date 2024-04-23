@@ -10,14 +10,14 @@ class UserController extends Controller
 {
     public function index(){
 
-        $user = user::all();
-        return view('admin.users.index')->with('user',$user);
+        $users = User::all();
+        return view('admin.users.index')->with('users',$users);
     }
 
     public  function destroy($id)
     {
-        $user = User::find($id);
-        if ($user->delete()) {
+        $users = User::find($id);
+        if ($users->delete()) {
             return back()->with('success', 'l utilisateur a été supprimé!');
         } else {
             return back()->with('error', 'Une erreur est survenue!');
