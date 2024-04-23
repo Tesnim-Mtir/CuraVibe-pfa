@@ -301,6 +301,13 @@
                         <div>
                             <h1>liste des utilisateurs </h1>
                             <hr />
+                            @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-circle me-2"></i> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                      
                             <div class="mt-3">
                                 <table class="table table-bordered">
@@ -318,9 +325,7 @@
                                                 <th scope="row">{{ $index +1 }}</th>
                                                 <td>{{ $u->name }}</td>
                                                 <td>{{ $u->email }}</td>
-                                                <td> <a data-bs-toggle="modal"
-                                                        data-bs-target="#editUser{{ $u->id }}"
-                                                        class="btn btn-success">Modifier</a>
+                                                <td> 
                                                     <a onclick="return confirm('voulez-vous vraiment supprimer cet utilisateur?')"
                                                         href="/admin/users/{{ $u->id }}/delete"
                                                         class="btn btn-danger">Supprimer</a>

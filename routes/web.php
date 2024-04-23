@@ -53,7 +53,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index']);
-Route::get('/admin/users/{id}/delete', [App\Http\Controllers\MedicamentController::class, 'destroy']);
+Route::get('/admin/users/{id}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
 
 Auth::routes();
 
