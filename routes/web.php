@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\ChartJSController;
 use App\Http\Controllers\ContactController;
 
@@ -25,8 +25,8 @@ Route::get('/', function () {
 Route::get('/inscription', function () {
     return view('home/inscription');
 });
-Route::get('/don', function () {
-    return view('home/don');
+Route::get('/contact', function () {
+    return view('/contact');
 });
 
 
@@ -35,13 +35,14 @@ Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->n
 
 Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
 Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
-Route::get('/Graphique', [UserController::class,'search'])->name('graphique');
+Route::get('/Graphique', [ChartJSController::class, 'showGraphiquePage'])->name('graphique');
 
-
-Route::get('/Graphique', function () {
+Route::get('/graphique', function () {
     return view('charts/Graphique');
 });
-Route::get('/welcome', [ContactController::class, 'contact']);
-Route::post('/welcome', [ContactController::class, 'submitForm'])->name('submitForm');
+
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
 
 

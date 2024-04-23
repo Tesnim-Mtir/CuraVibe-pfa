@@ -321,9 +321,6 @@ Gestion des stocks de médicaments :
       </div>
     </section><!-- End Portfolio Section -->
 
-
-
- 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -394,10 +391,12 @@ Gestion des stocks de médicaments :
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
-
+  @include('home.components.footer')
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+ 
   <!-- Vendor JS Files -->
   <script src="assets/1/vendor/aos/aos.js"></script>
   <script src="assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

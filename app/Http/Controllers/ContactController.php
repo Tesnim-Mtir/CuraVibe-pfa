@@ -6,14 +6,14 @@ use App\Mail\ContactMail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
-use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
-    public function contact()
+    public function showForm()
     {
-        return view('welcome');
+        return view('contact');
     }
+
     public function submitForm(Request $request)
     {
         $request->validate([
@@ -31,6 +31,7 @@ class ContactController extends Controller
         ];
 
         Mail::to('wafabenfatma@gmail.com')->send(new ContactMail($details));
+
         return redirect()->back()->with('success', 'Votre message a été envoyé avec succès.');
     }
 }

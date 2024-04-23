@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Commentaire;
 use App\Models\User;
 use App\Models\Recycle;
 use App\Models\Don;
@@ -17,13 +18,13 @@ class Controller extends BaseController
 }
 class UserController extends Controller
 {
-    public function index()
-    {
-        $users = User::all();
-        
-        return view('Graphique', ['users' => $users]);
-       
-    } 
+ 
+        public function index()
+        {
+            $comments = Commentaire::all();
+            return view('welcome', ['comments' => $comments]);
+        }
+    
     
 }
 

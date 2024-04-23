@@ -113,4 +113,8 @@ public function donutChart()
 
         return response()->json(['statistics' => $statistics]);
     }
+    public function showGraphiquePage()
+{
+    return view('charts.Graphique');
+}
 }

@@ -139,7 +139,7 @@
                             });
                         </script>
                         
-                                    <p><i class="bi bi-arrow-repeat" style="cursor: pointer;" onclick="updateOnClick()"></i> Mise à jour</p> </div>
+                     <p><i class="bi bi-arrow-repeat" style="cursor: pointer;" onclick="updateOnClick()"></i> Mise à jour</p> </div>
                 </div>
             </div>
             </div>
