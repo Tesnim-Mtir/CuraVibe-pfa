@@ -42,8 +42,8 @@ Route::get('/statistique', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard']);
-Route::get('/admin/medicament', [App\Http\Controllers\MedicamentController::class, 'index']);
+Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])/*->middleware('auth','admin')*/;
+Route::get('/admin/medicament', [App\Http\Controllers\MedicamentController::class, 'index'])/*->middleware('auth','admin')*/;
 Route::post('/admin/medicament/store', [App\Http\Controllers\MedicamentController::class, 'store']);
 
 Route::post('/admin/medicament/update', [App\Http\Controllers\MedicamentController::class, 'update']);
@@ -52,7 +52,7 @@ Route::get('/admin/medicament/{id}/delete', [App\Http\Controllers\MedicamentCont
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])/*->middleware('auth','admin')*/;
 Route::get('/admin/users/{id}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
 
 Auth::routes();
