@@ -34,12 +34,22 @@ Route::get('/contact', function () {
 Route::get('/Graphique', [ChartJSController::class, 'yourControllerMethod '])->name('graphique');
 
 Route :: get ( '/Graphique' , [ ChartJSController :: class , 'donutChart' ]);
-Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('fetch.statistics');
+Route::get('/Graphique', [ChartJSController :: class , 'fetchStatistics'])->name('graphique');
 Route::get('/Graphique', [ChartJSController::class, 'showGraphiquePage'])->name('graphique');
 
 Route::get('/graphique', function () {
     return view('charts/Graphique');
 });
+Route::get('/statistique', function () {
+    return view('/statistique');
+});
+use App\Http\Controllers\RecycleController;
+
+Route::get('/Graphique', [RecycleController::class, 'index'])->name('graphique');
+
+
+
+
 
 
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');

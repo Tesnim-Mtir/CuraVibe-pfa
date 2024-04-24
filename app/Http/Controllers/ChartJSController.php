@@ -92,14 +92,14 @@ public function donutChart()
         // Fetch done data
         $doneData = Don::with('user', 'description')
                         ->whereBetween('created_at', [$startDate, $endDate])
-                        ->select('id', 'user_id', 'description_id', 'created_at as date')
+                        ->select('id', 'user_id', 'description', 'created_at as date')
                         ->get();
 
                         
         // Fetch recycle data
         $recycleData = Recycle::with('user', 'description')
                               ->whereBetween('created_at', [$startDate, $endDate])
-                              ->select('id', 'user_id', 'description_id', 'created_at as date')
+                              ->select('id', 'user_id', 'description', 'created_at as date')
                               ->get();
 
         // Merge done and recycle data into a single collection
@@ -114,7 +114,7 @@ public function donutChart()
         return response()->json(['statistics' => $statistics]);
     }
     public function showGraphiquePage()
-{
-    return view('charts.Graphique');
-}
+    {
+        return view('charts.Graphique');
+    }
 }
