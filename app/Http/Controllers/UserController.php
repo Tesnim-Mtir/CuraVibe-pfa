@@ -8,6 +8,7 @@ use App\Models\Historique;
 use App\Models\Medicament;
 use App\Models\User;
 use App\Models\Allergie;
+use App\Models\Profile;
 
 use App\Models\traitment_allergy;
 
@@ -15,11 +16,31 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Prise_horaire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Twilio\Rest\Client;
 
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+//SMS*******************
+
+    public function sendsms()
+    {
+
+    $sid = getenv("TWILIO_SID");
+    $token = getenv("TWILIO_TOKEN");
+    $twilio = new Client($sid, $token);
+    
+    $message = $twilio->messages
+                      ->create("+21699551882", 
+                               [
+                                   "body" => "C\'est le moment de prendre votre médicament !",
+                                   "from" => "+13346038975"
+                               ]
+                      );
+
+}
     //Traitement***************************************************
 
 
@@ -196,12 +217,14 @@ public function addallergy(Request $request)
         ['name'=>'required',
         ]
       );
-
       $user=Session::get('user');
+    
+     
       $allery_user=new Allergy_user();
       $allergy = Allergie::where('name', $request->name)->first();
       if ($allergy) {
-        // Créer une nouvelle relation allergy_user
+      
+      
         $allergy_user = $user->allergyUsers()->create([
             'allergy_id' => $allergy->id,
         ]);
@@ -217,10 +240,11 @@ public function addallergy(Request $request)
 //Profile*****************************************
 
 
-
     public function profile()
     {$user=User::where('id',Session::get('user')->id)->get();
-       return view('Userspace.profile')->with('user',$user);
+
+ 
+       return view('Userspace.profile',['user'=>$user]);
     }
     
     public function update(Request $request)
@@ -325,3 +349,6 @@ if($user){
 
 }
 }
+
+
+

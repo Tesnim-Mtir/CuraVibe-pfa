@@ -111,6 +111,8 @@
                         <form  action="/profile/update"  method="POST">
                             @csrf
                             <input type="hidden" name="user_id" value="{{Session::get('user')->id}}">
+                 
+    
 
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first name)-->
@@ -147,6 +149,7 @@
                                     <input class="form-control" id="inputBirthday" type="text" name="dob" placeholder="Enter your birthday" value="1980-10-06">
                                 </div>
                             </div>
+                     
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit">Save changes</button>
                         </form>

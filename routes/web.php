@@ -49,6 +49,9 @@ Route::get('/register', [UserController::class, 'register']);
 Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/signout', [UserController::class, 'signout']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/sendsms', [UserController::class, 'sendsms']);
+
+
 
 
 
