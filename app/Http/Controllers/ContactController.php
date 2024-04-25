@@ -30,6 +30,8 @@ class ContactController extends Controller
         ];
 
         Mail::to('wafabenfatma@gmail.com')->send(new ContactMail($details));
+
+
         return redirect()->back()->with('success', 'Votre message a été envoyé avec succès.');
     }
 }

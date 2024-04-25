@@ -74,7 +74,7 @@
         <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
           @if(session('success'))
           <div class="alert alert-success">{{ session('success') }}</div>
-      @endif
+          @endif
       
       <form method="POST" action="{{ route('contact.submit') }}"role="form" class="php-email-form">
           @csrf

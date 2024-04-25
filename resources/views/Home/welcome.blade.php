@@ -209,7 +209,7 @@ Gestion des stocks de médicaments :
       </div>
     </section><!-- End Cta Section -->
  <!-- ======= Don Section ======= -->
- {{-- <section id="don" class="portfolio">
+ <section id="don" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -245,7 +245,7 @@ Gestion des stocks de médicaments :
       </div>
 
     </section><!-- End Portfolio Section -->
- --}}
+
   <!-- ======= Pharmacies Section ======= -->
   <section id="portfolio" class="portfolio">
     <div class="section-title">
