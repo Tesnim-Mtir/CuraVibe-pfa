@@ -41,7 +41,7 @@
  <!-- End Header -->
 
   <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
+  <section  class="contact">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -112,8 +112,9 @@
 
 </main><!-- End #main -->
 @include('home.components.footer')
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ <div id="preloader"></div>
+ 
+ <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
 

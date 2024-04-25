@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 
@@ -11,7 +10,7 @@ class ContactController extends Controller
 {
     public function showForm()
     {
-        return view('contact');
+        return view('/contact');
     }
 
     public function submitForm(Request $request)
@@ -31,7 +30,6 @@ class ContactController extends Controller
         ];
 
         Mail::to('wafabenfatma@gmail.com')->send(new ContactMail($details));
-
         return redirect()->back()->with('success', 'Votre message a été envoyé avec succès.');
     }
 }
