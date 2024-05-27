@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecycleController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CliniqueController;
 use App\Http\Controllers\ChartJSController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\RecycleController;
-use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

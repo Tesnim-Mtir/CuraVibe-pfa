@@ -49,7 +49,7 @@
 <body id="1">
 
   <!-- ======= Header ======= -->
-  @include('DON.components.header')
+  @include('Home.components.header')
   <!-- End Header -->
 
   <!-- REGISTRATION AND LOGIN CONTAINER -->
