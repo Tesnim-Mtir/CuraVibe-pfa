@@ -8,6 +8,7 @@ use App\Models\Historique;
 use App\Models\Medicament;
 use App\Models\User;
 use App\Models\Allergie;
+use App\Models\Stock;
 use App\Models\Profile;
 
 use App\Models\traitment_allergy;
@@ -39,6 +40,7 @@ class UserController extends Controller
                                    "from" => "+13346038975"
                                ]
                       );
+return back()->with('qucccess', 'Reminder mesage send with success');
 
 }
     //Traitement***************************************************
@@ -236,6 +238,74 @@ public function addallergy(Request $request)
 
 
 }
+
+
+//mypharmacie*******************************
+public function mypharmacie()
+{
+    $medicament=Medicament::all();
+    $stock=Stock::all();
+      return view('Userspace.mypharmacie',['medicament'=>$medicament,'stock'=> $stock]);
+
+}
+
+public function addtomypharmacie(Request $request)
+
+{
+   //dd($request);
+    $request->validate([
+        'name_medicament' => 'required|string',
+        'quantite' => 'required|integer|min:1',
+    ]);
+
+   
+    Stock::create([
+        'name_medicament' => $request->input('name_medicament'),
+        'quantite' => $request->input('quantite'),
+    ]);
+
+    
+    return redirect()->back()->with('success', 'Le médicament a été ajouté au stock avec succès.');
+
+}
+
+
+public function updatestock(Request $request, $id)
+{
+   
+       
+        $request->validate([
+            'name_medicament' => 'required|string',
+            'quantite' => 'required|integer|min:1',
+        ]);
+
+        $produit = Stock::findOrFail($id);
+
+        $produit->update([
+            'name_medicament' => $request->input('name_medicament'),
+            'quantite' => $request->input('quantite'),
+        ]);
+
+      // $produit->name_medicament = $request->input('name_medicament');
+       // $produit->quantite = $request->input('quantite');
+       // $produit->update();
+
+        return redirect()->back()->with('success', 'Le produit a été modifié avec succès.');
+   
+}
+
+public function deletefrommypharmacie($id)
+{
+    $stock=Stock::findOrFail($id);
+  
+    $stock->delete();
+    
+    return redirect()->back()->with('success', 'produit stock supprimé avec succès.');
+}
+
+
+
+
 
 //Profile*****************************************
 

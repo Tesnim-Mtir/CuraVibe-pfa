@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +45,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        
+                       
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -63,6 +61,8 @@
                     <a href="/allergy" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                     <a href="/mypharmacie" class="nav-item nav-link"><i class="fa fa-table me-2"></i>mypharmacie</a>
+                 
+                 
                     
                 </div>
             </nav>
@@ -80,10 +80,10 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-               
+              
                 <div class="navbar-nav align-items-center ms-auto">
+                  
                     
-                
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             
@@ -101,17 +101,9 @@
 
 
             <!-- Sale & Revenue Start -->
+          
+            <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
-                @if(session('warning'))
-                     
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fa fa-exclamation-circle me-2"></i> {{ session('warning') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                           
-                    
-                @endif
-
                 @if(session('success'))
               
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -121,73 +113,87 @@
                      
              
                @endif
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">add medicament</h6>
+                            <form action="/mypharmacie/add" method="post">
+                                @csrf
+                                <div class="form-floating mb-3">
 
-                <div class="row justify-content-center">
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Add New Traitment</h6>
-                        
-                        <form method="POST" action="/traitment/add"  >
-                            {{ csrf_field() }}
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Name medicament</label>
-                                <!--input type="text" class="form-control" name="medicament" -->
-                                <select class="form-select mb-3" aria-label="Default select example" name="medicament" required>
-                                    <option selected></option>
-                                     @foreach ($medicament as $md )
-                                     <option >{{$md->name}}</option>
-                                     @endforeach
+                                    <select class="form-select mb-3" aria-label="Default select example" name="name_medicament" required>
+                                        <option selected></option>
+                                         @foreach ($medicament as $md )
+                                         <option >{{$md->name}}</option>
+                                         @endforeach
+                                       
+                                      
+                                    </select><br>
+                                    <input class="form-control form-control-lg mb-3" type="number" placeholder=".form-control-lg"
+                                    aria-label=".form-control-lg example"  name="quantite">
                                    
-                                  
-                                </select>
-                              
-                              
-                            </div>
-
-                           
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Periode Traitment</label>
-                                <input type="number" class="form-control" name="periode_traitment" required>
-                              
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">debut traitment</label>
-                                <input type="date" class="form-control" name="start_date" required>
-                              
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">fin traitment</label>
-                                <input type="date" class="form-control" name="end_date" required>
-                              
-                            </div>
-
-                           
-
-                             <div class="mb-3">
-                                <div id="horaires">
-                                    <div class="horaire">
-                                        <label for="heure">Heures de prise:</label>
-                                        <input type="time" name="heure[]" required>
-                                        <br>
-                                    </div>
                                 </div>
-                            
-                                <button type="button" onclick="ajouterHoraire()">Ajouter un horaire </button>
-                                <br>
-                            
-                            </div>
-
-                           
-                           
-                            <button type="submit" class="btn btn-primary">Create Traitment</button>
-                        </form>
+                              
+                              
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                    
+               
+                
                 </div>
             </div>
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-light rounded h-100 p-3">
+                    <h6 class="mb-4">My stock medicament </h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                  
+                                    <th scope="col">medicament Name</th>
+                                    <th scope="col">quantité</th>
+                                    <th scope="col">Actions</th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                     $i = 1;
+                                @endphp
+                             
+                             @foreach  ($stock as $s)
+                                <tr>
+                                    <td scope="row">{{ $i++ }}</td>
+                                    <td> {{ $s->name_medicament}}</td>
+                                    <td>{{ $s->quantite}}</td>
+                                    <td> <li class="list-inline-item">
+                                        <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="/mypharmacie/delete/{{ $s->id}}"><i class="fa fa-trash"></i></a>
+                                        
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="/mypharmacie/updatestock/{{ $s->id}}"><i class="fa fa-edit"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="recyclet"><i class="fa fa-recycle"></i></a>
+                                    </li></td>
+                                
+                                </tr>
+                                @endforeach
+                              
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- Form End -->
             <!-- Sale & Revenue End -->
 
 
@@ -196,7 +202,7 @@
 
 
             <!-- Footer Start -->
-        
+         
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
@@ -204,14 +210,14 @@
                             &copy; <a href="#">Curavibe</a>, All Right Reserved. 
 
                         </div>
-                     
+                       
                       
                     </div>
                 </div>
-           
+            </div>
       
             <!-- Footer End -->
-        </div>
+        
     </div>
     
         <!-- Content End -->
@@ -233,30 +239,26 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('assets/js/main.js')}}"></script>
-    
-<script>
-    function ajouterHoraire() {
-        var horairesDiv = document.getElementById('horaires');
-        var nouvelleHoraireDiv = document.createElement('div');
-        nouvelleHoraireDiv.classList.add('horaire');
 
-        var label = document.createElement('label');
-        label.textContent = 'Heures de prise :  ';
+      
+    <script>
+        $(document).ready(function() {
+            // Écoute les clics sur les boutons de modification
+            $('.btn-edit').click(function() {
+                var id = $(this).data('id');
+                var name = $(this).data('name');
+                var quantite = $(this).data('quantite');
 
-        var input = document.createElement('input');
-        input.type = 'time';
-        input.name = 'heure[]';
-        input.required = true;
+                // Remplir les champs du formulaire avec les données
+                $('#id').val(id);
+                $('#name_medicament').val(name);
+                $('#quantite').val(quantite);
 
-        var br = document.createElement('br');
-
-        nouvelleHoraireDiv.appendChild(label);
-        nouvelleHoraireDiv.appendChild(input);
-        nouvelleHoraireDiv.appendChild(br);
-
-        horairesDiv.appendChild(nouvelleHoraireDiv);
-    }
-</script>
+                // Modifier l'action du formulaire pour inclure l'ID du médicament
+                $('#medicamentForm').attr('action', '{{ url("/mypharmacie/updatestock/") }}/' + id);
+            });
+        });
+    </script>
 </body>
 
 </html>

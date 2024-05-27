@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecycleController;
 
 
 /*
@@ -50,6 +51,12 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/signout', [UserController::class, 'signout']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/sendsms', [UserController::class, 'sendsms']);
+Route::get('/mypharmacie', [UserController::class, 'mypharmacie']);
+Route::post('/mypharmacie/add', [UserController::class, 'addtomypharmacie']);
+Route::get('/mypharmacie/updatestock/{id}', [UserController::class, 'updatestock']);
+Route::get('/mypharmacie/delete/{id}', [UserController::class, 'deletefrommypharmacie']);
+
+
 
 
 

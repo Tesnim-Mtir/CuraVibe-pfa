@@ -30,6 +30,14 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap" async defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -43,26 +51,8 @@
                 <a href="/ongoing" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class=""></i>Curavibe</h3>
                 </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                       
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">{{Session::get('user')->name}}</h6>
-                        
-                    </div>
-                </div>
-                <div class="navbar-nav w-100">
-                  
-                 
-                    <a href="/ongoing" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Ongoing</a>
-                    <a href="/history" class="nav-item nav-link"><i class="fas fa-history"></i></i>History</a>
-                    <a href="/allergy" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
-                    <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
-                    <a href="/mypharmacie" class="nav-item nav-link"><i class="fa fa-table me-2"></i>mypharmacie</a>
-                    
-                </div>
+             
+           
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -81,18 +71,8 @@
               
                 <div class="navbar-nav align-items-center ms-auto">
                   
-                  
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            
-                            <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="/profile" class="dropdown-item">My Profile</a>
-                          
-                            <a href="/signout" class="dropdown-item">Log Out</a>
-                        </div>
-                    </div>
+                    
+                
                 </div>
             </nav>
             <!-- Navbar End -->
@@ -103,42 +83,36 @@
                 <div class="row justify-content-center">
                 <div class="col-sm-12 col-xl-10">
                     <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">History</h6>
+                        <h6 class="mb-4"></h6>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">medicament</th>
-                                    <th scope="col">Periode Traitment</th>
-                                    <th scope="col">debut traitment</th>
-                                    <th scope="col">fin traitment</th>
                                     <th scope="col"></th>
+                                    <th scope="col">Nom Pharmacie</th>
+                                    <th scope="col">Contact</th>
+                                    
                                    
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @if ($historiques->count() > 0)
-                                <h2>Historique des traitements :</h2>
+                                <h2>Rechercher pharmacie</h2>
                                 <ul>
-                                    @foreach ($historiques as $historique)
-                                       
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>{{ $historique->traitment->medicament->name }}</td>
-                                    <td>{{ $historique->traitment->periode_traitment}}</td>
-                                    <td>{{ $historique->traitment->start_date }}</td>
-                                    <td>{{ $historique->traitment->end_date }}</td>
-                                    <td> <li class="list-inline-item">
-                                        <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="/history/{{$historique->id}}"><i class="fa fa-trash"></i></a>
-                                        
-                                    </li></td>
-                                </tr>
-                                @endforeach
-                            </ul>
-                        @else
-                            <p>Aucun historique de traitement disponible pour le moment.</p>
-                        @endif
+                                    @if (!empty($pharmacies))
+                                    @foreach ($pharmacies as $pharmacie)
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>{{ $pharmacie->nom }}</td>
+                                            <td>{{ $pharmacie->contact }}</td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="3">Aucune pharmacie trouvée</td>
+                                    </tr>
+                                @endif
+                            
+                   
                                
                             </tbody>
                         </table>
@@ -146,30 +120,13 @@
                 </div>
             </div>
                 </div>
-            <!-- Sale & Revenue End -->
+                
 
 
 
 
 
-
-            <!-- Footer Start -->
-         
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            &copy; <a href="#">Curavibe</a>, All Right Reserved. 
-
-                        </div>
-                       
-
-                      
-                    </div>
-                </div>
-            </div>
-      
-            <!-- Footer End -->
+            
         
     </div>
     
