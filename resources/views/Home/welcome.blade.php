@@ -56,7 +56,7 @@
          <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
          <li><a class="nav-link   scrollto" href="contact">Contact</a></li>
   
-         <li><a class="getstarted scrollto" href="register">Inscription</a></li>
+         <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>
                   </a></li>
        
         </ul>
