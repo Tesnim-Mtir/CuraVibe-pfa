@@ -8,8 +8,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RecycleController;
 
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +29,7 @@ Route::get('/inscription', function () {
 
 Route::get('/edit', [DonationController::class, 'history'])->name('don.history');
 Route::delete('/edit/{id}', [DonationController::class, 'destroy'])->name('don.destroy');
+Route::put('/update/{id}', [DonationController::class, 'update'])->name('don.update');
 
 
 Route::get('/', [DonationController::class, 'home']);
@@ -43,7 +42,6 @@ Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details'
 
 Route::get('/add', [DonationController::class, 'create'])->name('donation.create');
 Route::post('/add', [DonationController::class, 'store'])->name('donation.store');
-Route::post('/don/{id}', 'DonationController@updateStatus')->name('don.updateStatus');
 
 
 

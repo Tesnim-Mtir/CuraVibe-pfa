@@ -35,12 +35,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="assets/4/css/style.css">
+  
 </head>
 
 <body>
 
    <!-- ======= Header ======= -->
-   @include('home.components.header')
+   @include('home.components.headerdon')
  <!-- End Header -->
 
   <main id="main">
@@ -87,11 +88,50 @@
                                     @endif
                                 </span>
                             </td>
-                                                          <td>
+                            <td>
+                           <!-- Button to trigger modal -->
+                           <i class="fa fa-search-plus box-icon zoombox" data-toggle="modal" data-target="#A11" id="ZA1" title="" style="margin-right:10px;"></i>
+                           <div class="modal fade" id="A11" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="panel-body" id="A1">
+                                          <div class="wrapper">
+                                            <div class="inner">
+                                              <form action="{{ route('don.update', $donation->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <h3>Modifier le don</h3>
+                                                <div class="custom-section">
+                                                    <input type="text" class="form-control custom-control" name="nom" placeholder="Nom" value="{{ $donation->nom }}" required>
+                                                    <input type="number" class="form-control custom-control" name="quantite" placeholder="Quantité" value="{{ $donation->quantite }}" required>
+                                                </div>
+                                                <input type="file" class="form-control custom-control" name="image" accept="image/*">
+                                                <select class="form-control custom-control" name="etat">
+                                                    <option value="Neuf" {{ $donation->etat == 'Neuf' ? 'selected' : '' }}>Neuf</option>
+                                                    <option value="Occasion" {{ $donation->etat == 'Occasion' ? 'selected' : '' }}>Occasion</option>
+                                                </select>
+                                                <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required>{{ $donation->description }}</textarea>
+                                                <button class="custom-button" type="submit">Modifier <i class="zmdi zmdi-long-arrow-right"></i></button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                        
+                          
+                                    
+                                    
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </td>     
+                            <td>
                         <form action="{{ route('don.destroy', $donation->id) }}" method="POST">
                                       @csrf
                                     @method('DELETE')
-                                 <button type="submit" class="close" aria-label="Close" onclick="return confirm('Are you sure you want to delete this donation?')">
+                                 <button type="submit" class="close" aria-label="Close" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer ce don ?')">
                                 <span aria-hidden="true"><i class="fa fa-close"></i></span>
                                  </button>
                              </form>

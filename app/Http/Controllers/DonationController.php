@@ -105,5 +105,34 @@ public function updateStatus($id)
         return response()->json(['error' => 'Failed to update status: ' . $e->getMessage()], 500);
     }
 }
-
+public function update(Request $request, $id)
+        {
+            $validatedData = $request->validate([
+                'nom' => 'required|string|max:255',
+                'quantite' => 'required|numeric',
+                'description' => 'required|string',
+                'image' => 'image|max:2048',
+                'utilisateur' => 'nullable|string',
+                'numero' => 'nullable|string',
+                'etat' => 'nullable|string',
+                'status' => 'nullable|string',            ]);
+        
+            $donation = Don::findOrFail($id);
+            $donation->nom = $validatedData['nom'];
+            $donation->quantite = $validatedData['quantite'];
+            $donation->description = $validatedData['description'];
+            $donation->utilisateur = $validatedData['utilisateur'] ?? null;
+            $donation->numero = $validatedData['numero'] ?? null;
+            $donation->etat = $validatedData['etat'] ?? null;
+            $donation->status = $validatedData['status'] ?? null;        
+            if ($request->hasFile('image')) {
+                $imageName = $request->file('image')->getClientOriginalName();
+                $imagePath = $request->file('image')->storeAs('images', $imageName);
+                $donation->image = $imageName;
+            }
+        
+            $donation->save();
+        
+            return redirect()->route('don.index')->with('success', 'Donation updated successfully!');
+        } 
 }

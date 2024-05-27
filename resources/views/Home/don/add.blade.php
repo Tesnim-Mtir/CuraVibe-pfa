@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    @include('home/components.header')
+    @include('home.components.headerdon')
 
     <div class="wrapper">
         <div class="inner">
