@@ -7,6 +7,12 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CliniqueController;
 use App\Http\Controllers\ChartJSController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\MedicamentController;
+use Illuminate\Support\Facades\Auth;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,7 +80,7 @@ Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact
 
 
 /*Userspace Routes*/
-
+Route::namespace('Auth\User')->group(function () {
 Route::get('/traitment', [UserController::class, 'newtraitment']);
 
 Route::POST('/traitment/add', [UserController::class, 'addnewtraitment']);
@@ -102,5 +108,31 @@ Route::get('/mypharmacie', [UserController::class, 'mypharmacie']);
 Route::post('/mypharmacie/add', [UserController::class, 'addtomypharmacie']);
 Route::get('/mypharmacie/updatestock/{id}', [UserController::class, 'updatestock']);
 Route::get('/mypharmacie/delete/{id}', [UserController::class, 'deletefrommypharmacie']);
+});
+
+
+Route::group(['middleware' => 'admin'], function () {
+    // Dashboard route
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+
+    // Profile routes
+    Route::get('/admin/profile', [AdminController::class, 'profile']);
+    Route::post('/admin/profile/update', [AdminController::class, 'updateProfile']);
+
+    // Medicament routes
+    Route::get('/admin/medicament', [MedicamentController::class, 'index']);
+    Route::post('/admin/medicament/store', [MedicamentController::class, 'store']);
+    Route::get('/admin/medicament/{id}/edit', [MedicamentController::class, 'edit']);
+    Route::post('/admin/medicament/update', [MedicamentController::class, 'update']);
+    Route::get('/admin/medicament/{id}/delete', [MedicamentController::class, 'destroy']);
+
+    // User admin routes
+    Route::get('/admin/users', [UserAdminController::class, 'index']);
+    Route::get('/admin/users/{id}/delete', [UserAdminController::class, 'destroy']);
+});
+
+// Authentication routes
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
