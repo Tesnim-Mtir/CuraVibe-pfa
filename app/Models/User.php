@@ -50,12 +50,22 @@ class User extends \TCG\Voyager\Models\User
     {
     return $this->hasMany(Recycle::class);
     }
-
+    public function historiques()
+    {
+        return $this->hasMany(Historique::class);
+    }
     public function don()
     {
     return $this->hasMany(Don::class);
     }
-
+    public function traitements()  // Ajout de la relation traitements
+    {
+        return $this->hasMany(Traitment::class);
+    }
+    public function allergyUsers()
+    {
+        return $this->hasMany(Allergy_user::class);
+    }
 }
 
 

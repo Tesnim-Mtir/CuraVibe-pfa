@@ -22,6 +22,7 @@ Route::post('/cabinet', [CliniqueController::class, 'search'])->name('search.cli
 Route::get('/', function () {
     return view('home/welcome');
 });
+
 Route::get('/inscription', function () {
     return view('home/inscription');
 });
