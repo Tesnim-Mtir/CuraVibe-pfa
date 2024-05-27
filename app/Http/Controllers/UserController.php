@@ -408,7 +408,7 @@ if($user){
     
     {
         Session::put('user',$user);
-        return redirect('/home');
+        return redirect('/');
     }else{
         return back()->with('status', 'Mot de passe incorrect');
     }

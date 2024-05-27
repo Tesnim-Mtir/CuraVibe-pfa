@@ -55,7 +55,8 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
          <li><a class="nav-link   scrollto" href="#portfolio">Don</a></li>
          <li><a class="nav-link   scrollto" href="contact">Contact</a></li>
-  
+         <li><a class="nav-link   scrollto" href="/ongoing">Compte: {{Session::get('user')->name}}</a></li>
+
          <li><a class="getstarted scrollto" href="register">Inscription</a></li>
                   </a></li>
        
