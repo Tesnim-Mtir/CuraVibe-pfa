@@ -387,7 +387,7 @@ public function deletefrommypharmacie($id)
 public function signout()
 {
     Session::forget('user');
-    return redirect('/home');
+    return redirect('/');
 }
 
 
