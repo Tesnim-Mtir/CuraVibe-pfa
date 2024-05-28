@@ -36,29 +36,19 @@
           <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
             <div class="navbar-vertical-content scrollbar">
               <ul class="navbar-nav flex-column" id="navbarVerticalNav">
-                <li class="nav-item"><a class="nav-link active" href="index.html">
+                <li class="nav-item"><a class="nav-link active" href="/admin/users">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">gestion utilisateurs</span></div>
                   </a></li>
 
                   <li class="nav-item"><a class="nav-link active" href="/admin/medicament">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">gestion medicaments</span></div>
                   </a></li>
-              
-                  <li class="nav-item"><a class="nav-link active" href="/don'">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">espace Don</span></div>
-                  </a></li>
-            
-                  <li class="nav-item"><a class="nav-link active" href="/recycle">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">recycle</span></div>
-                  </a></li>
-                  <li class="nav-item"><a class="nav-link active" href="index.html">
+                  <li class="nav-item"><a class="nav-link active" href="/Graphique">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="cast"></span></span><span class="nav-link-text">Statistiques</span></div>
                   </a></li>
 
               </ul>
-            </div>
-            <div class="navbar-vertical-footer"><a class="btn btn-link border-0 fw-semi-bold d-flex ps-0" href="#!"><span class="navbar-vertical-footer-icon" data-feather="log-out"></span><span>Settings</span></a></div>
-          </div>
+          
         </nav>
         <nav class="navbar navbar-light navbar-top navbar-expand">
           <div class="navbar-logo"><button class="btn navbar-toggler navbar-toggler-humburger-icon" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button> <a class="navbar-brand me-1 me-sm-3" href="index.html">
