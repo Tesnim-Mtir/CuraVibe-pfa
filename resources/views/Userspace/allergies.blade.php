@@ -61,6 +61,9 @@
                     <a href="/allergy" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Allergies</a>
                     <a href="/traitment" class="nav-item nav-link"><i class='fas fa-pills'></i>New Traitment</a>
                     <a href="/mypharmacie" class="nav-item nav-link"><i class="fa fa-table me-2"></i>mypharmacie</a>
+                    <a href="/adddon" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Ajouter un don</a>
+                    <a href="/historydon" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Don history</a>
+
                     
                 </div>
             </nav>

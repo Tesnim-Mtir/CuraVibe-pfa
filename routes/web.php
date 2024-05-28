@@ -37,7 +37,9 @@ Route::get('/edit', [DonationController::class, 'history'])->name('don.history')
 Route::delete('/edit/{id}', [DonationController::class, 'destroy'])->name('don.destroy');
 Route::put('/update/{id}', [DonationController::class, 'update'])->name('don.update');
 
-
+Route::get('/historydon', [DonationController::class, 'history1'])->name('don.history');
+Route::delete('/historydon/{id}', [DonationController::class, 'destroy2'])->name('don.destroy');
+Route::put('/updatehistory/{id}', [DonationController::class, 'update2'])->name('don.update');
 Route::get('/', [DonationController::class, 'home']);
 
 Route::get('/don', [DonationController::class, 'index'])->name('don.index');
@@ -48,6 +50,9 @@ Route::get('/don/{id}', [DonationController::class, 'show'])->name('don_details'
 
 Route::get('/add', [DonationController::class, 'create'])->name('donation.create');
 Route::post('/add', [DonationController::class, 'store'])->name('donation.store');
+
+Route::get('/adddon', [DonationController::class, 'create2'])->name('donation.create');
+Route::post('/adddon', [DonationController::class, 'store2'])->name('donation.store');
 
 
 
@@ -132,7 +137,6 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 // Authentication routes
-Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

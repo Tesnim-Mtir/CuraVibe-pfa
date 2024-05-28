@@ -9,8 +9,7 @@
        
           <li><a class="nav-link scrollto " href="/">Acceuil</a></li>
           <li><a class="nav-link scrollto " href="don">Don</a></li>
-          <li><a class="nav-link scrollto " href="/add">Ajouter un don</a></li>
-          <li><a class="nav-link scrollto " href="/edit">Historique don</a></li>
+          <li><a class="nav-link scrollto " href="/register">Ajouter un don</a></li>
           <li><a class="nav-link scrollto " href="contact">Contact</a></li>
 
 

@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +8,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+<style>
+    footer{
+        position:fixed;
+        bottom: 0%;
+        width: 100%;
+        margin-right: 5%;
+    }
+    </style>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -32,9 +37,21 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
+    
+  <!-- Template Main CSS File -->
+  <link href="assets/1/css/style.css" rel="stylesheet">
+
+
+  <!-- MATERIAL DESIGN ICONIC FONT -->
+  <link rel="stylesheet" href="assets/5/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+          
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="assets/5/css/style.css">
 </head>
 
 <body>
+   
     <div class="container-xxl position-relative bg-white d-flex p-0">
     
 
@@ -47,7 +64,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        
+                       
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -84,16 +101,16 @@
                 </a>
                
                 <div class="navbar-nav align-items-center ms-auto">
+                   
                     
-                
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            
+                           
                             <span class="d-none d-lg-inline-flex">{{Session::get('user')->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="/profile" class="dropdown-item">My Profile</a>
-                          
+                       
                             <a href="/signout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -104,90 +121,34 @@
 
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
-                @if(session('warning'))
-                     
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fa fa-exclamation-circle me-2"></i> {{ session('warning') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                           
-                    
-                @endif
-
-                @if(session('success'))
-              
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fa fa-exclamation-circle me-2"></i> {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                     
-             
-               @endif
-
-                <div class="row justify-content-center">
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Add New Traitment</h6>
-                        
-                        <form method="POST" action="/traitment/add"  >
-                            {{ csrf_field() }}
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Name medicament</label>
-                                <!--input type="text" class="form-control" name="medicament" -->
-                                <select class="form-select mb-3" aria-label="Default select example" name="medicament" required>
-                                    <option selected></option>
-                                     @foreach ($medicament as $md )
-                                     <option >{{$md->name}}</option>
-                                     @endforeach
+                <div class="col-12">
+                    <div class="wrapper">
+                        <div class="inner">
+                            <div class="image-holder">
+                                <img src="assets/5/images/registration-form-6.jpg" alt="">
+                            </div>
+                            <form action="{{ route('donation.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <h3>Ajouter un don</h3>
+                                <div class="form-row">
+                                    <input type="text" class="form-control" name="nom" placeholder="Nom" required>
+                                    <input type="number" class="form-control" name="quantite" placeholder="Qantité" required>
                                    
-                                  
-                                </select>
-                              
-                              
-                            </div>
-
-                           
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">Periode Traitment</label>
-                                <input type="number" class="form-control" name="periode_traitment" required>
-                              
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="" class="form-label">debut traitment</label>
-                                <input type="date" class="form-control" name="start_date" required>
-                              
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">fin traitment</label>
-                                <input type="date" class="form-control" name="end_date" required>
-                              
-                            </div>
-
-                           
-
-                             <div class="mb-3">
-                                <div id="horaires">
-                                    <div class="horaire">
-                                        <label for="heure">Heures de prise:</label>
-                                        <input type="time" name="heure[]" required>
-                                        <br>
-                                    </div>
                                 </div>
-                            
-                                <button type="button" onclick="ajouterHoraire()">Ajouter un horaire </button>
-                                <br>
-                            
-                            </div>
-
-                           
-                           
-                            <button type="submit" class="btn btn-primary">Create Traitment</button>
-                        </form>
+                                <div class="form-row">
+                                    <input type="file" class="form-control" name="image" accept="image/*" required>
+                                    <select class="form-control" name="etat" required>
+                                        <option value="" disabled selected>Sélectionner l'état</option>
+                                        <option value="Neuf">Neuf</option>
+                                        <option value="Occasion">Occasion</option>
+                                    </select>
+                                    
+                                </div>
+                                <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required></textarea>
+                                <button type="submit">Ajouter <i class="zmdi zmdi-long-arrow-right"></i></button>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             <!-- Sale & Revenue End -->
@@ -198,7 +159,8 @@
 
 
             <!-- Footer Start -->
-        
+        <footer >
+            
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
@@ -206,14 +168,14 @@
                             &copy; <a href="#">Curavibe</a>, All Right Reserved. 
 
                         </div>
-                     
+                       
                       
                     </div>
                 </div>
-           
+            </div>
       
             <!-- Footer End -->
-        </div>
+        </footer>
     </div>
     
         <!-- Content End -->
@@ -232,33 +194,21 @@
     <script src="{{asset('assets/lib/tempusdominus/js/moment.min.js')}}"></script>
     <script src="{{asset('assets/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
     <script src="{{asset('assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-
+    <script src="assets/1/vendor/aos/aos.js"></script>
+    <script src="assets/1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/1/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/1/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/1/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/1/vendor/php-email-form/validate.js"></script>
+   
+    <!-- Template Main JS File -->
+    <script src="assets/5/js/jquery-3.3.1.min.js"></script>
+   <script src="assets/5/js/main.js"></script>
+    <script src="assets/1/js/main.js"></script>
+    <link rel="stylesheet" href="assets/5/style.css">
     <!-- Template Javascript -->
     <script src="{{asset('assets/js/main.js')}}"></script>
-    
-<script>
-    function ajouterHoraire() {
-        var horairesDiv = document.getElementById('horaires');
-        var nouvelleHoraireDiv = document.createElement('div');
-        nouvelleHoraireDiv.classList.add('horaire');
-
-        var label = document.createElement('label');
-        label.textContent = 'Heures de prise :  ';
-
-        var input = document.createElement('input');
-        input.type = 'time';
-        input.name = 'heure[]';
-        input.required = true;
-
-        var br = document.createElement('br');
-
-        nouvelleHoraireDiv.appendChild(label);
-        nouvelleHoraireDiv.appendChild(input);
-        nouvelleHoraireDiv.appendChild(br);
-
-        horairesDiv.appendChild(nouvelleHoraireDiv);
-    }
-</script>
 </body>
 
 </html>
