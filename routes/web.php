@@ -135,6 +135,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users', [UserAdminController::class, 'index']);
     Route::get('/admin/users/{id}/delete', [UserAdminController::class, 'destroy']);
 });
+Auth::routes();
 
 // Authentication routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
