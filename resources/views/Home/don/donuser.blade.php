@@ -146,6 +146,7 @@
                                 </div>
                                 <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required></textarea>
                                 <input type="hidden" name="utilisateur" value="{{ Session::get('user')->id }}">
+                                <input type="hidden" name="numero" value="{{ Session::get('user')->phone }}">
 
                                 <button type="submit">Ajouter <i class="zmdi zmdi-long-arrow-right"></i></button>
                             </form>
