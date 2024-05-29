@@ -17,6 +17,11 @@
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                     data-feather="cast"></span></span><span class="nav-link-text">Statistiques</span></div>
                     </a></li>
+                </a></li>
+                <li class="nav-item"><a class="nav-link active" href="/admin/recyclemedicament">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                data-feather="cast"></span></span><span class="nav-link-text">Recycle Medicaments </span></div>
+                </a></li>
 <!--
                 <li class="nav-item"><a class="nav-link active" href="/don'">
                         <div class="d-flex align-items-center"><span class="nav-link-icon"><span

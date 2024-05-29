@@ -135,9 +135,62 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users', [UserAdminController::class, 'index']);
     Route::get('/admin/users/{id}/delete', [UserAdminController::class, 'destroy']);
 });
-//Auth::routes();
+Auth::routes();
 
 // Authentication routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//hadil
+
+
+Route::get('/recycle', function () {
+    return view('recycle/page');
+});
+Route::get('/formulaire', function () {
+    return view('recycle/formulaire');
+});
+Route::get('/maps', function () {
+    return view('recycle/maps');
+});
+
+Route::get('/index', function () {
+    return view('recycle/index');
+});
+Route::get('/edit', function () {
+    return view('recycle/edit');
+});
+Route::get('/adminrecycle', function () {
+    return view('recycle/adminrecycle');
+});
+use App\Http\Controllers\CountryController;
+
+use App\Http\Controllers\PharmacieController;
+use App\Http\Controllers\MedicamentRecycleController;
+
+//Route::get('medicament/formulaire', [MedicamentRecycleController::class, 'store'])->name('formulaire');;
+
+Route::post('/Country/add', [CountryController::class, 'AddCountry']);
+Route::get('/Pharmacie/add', [CountryController::class, 'handleFormSubmission'])->name('/Pharmacie/add');
+
+Route::get('/Pharmacie/add', [PharmacieController::class, 'AddPharmacie']);
+
+
+/**   Route recycle medicament  **/
+Route::get('/admin/recyclemedicament', [MedicamentRecycleController::class , 'index'])->name('Show-medicament');
+Route::post('/recyclemedicament/store', [MedicamentRecycleController::class , 'store'])->name('Add-medicament');;
+Route::get('/recyclemedicament/update', [MedicamentRecycleController::class , 'update']);
+
+Route::get('/recyclemedicament/{id}/delete', [MedicamentRecycleController::class , 'destory']);
+Route::delete('/delete-medicament/{id}', [MedicamentRecycleController::class, 'deleteMedicament'])->name('delete.medicament');
+//delete fonctionnel
+Route::put('/update-medicament/{id}', [MedicamentRecycleController::class, 'deleteMedicament'])->name('delete.medicament');
+
+Route::get('/recyclemedicament/{id}/edit', [MedicamentRecycleController::class , 'editMedicament'])->name('recycle.edit');
+Route::put('/recyclemedicament/{id}/update', [MedicamentRecycleController::class, 'updateMedicament'])->name('update.medicament');
+//Route::get('/Add/Medicament', [MedicamentRecycleController::class,'ShowAddForm'])->name('recycle.index');
+//
+Route::get('/add-medicament', [MedicamentRecycleController::class, 'getFormAdd'])->name('add.medicament.form');
+
+
+
 
 
