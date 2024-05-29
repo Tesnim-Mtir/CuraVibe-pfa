@@ -60,12 +60,13 @@
               <a class="nav-link scrollto" href="/ongoing">Compte: {{ Session::get('user')->name }}</a>
           </li>
       @else
-          <li>
-          </li>
+          
+            <li><a class="getstarted scrollto" href="register">Inscription</a></li>
+          </a></li>
+          
       @endif</li>
 
-         <li><a class="getstarted scrollto" href="register">Inscription</a></li>
-                  </a></li>
+        
        
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

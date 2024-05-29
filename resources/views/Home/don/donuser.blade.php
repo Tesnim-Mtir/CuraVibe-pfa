@@ -129,7 +129,7 @@
                             </div>
                             <form action="{{ route('donation.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <h3>Ajouter un don</h3>
+                                <h3>Ajouter un don </h3>
                                 <div class="form-row">
                                     <input type="text" class="form-control" name="nom" placeholder="Nom" required>
                                     <input type="number" class="form-control" name="quantite" placeholder="Qantité" required>
@@ -145,6 +145,8 @@
                                     
                                 </div>
                                 <textarea name="description" placeholder="Description" class="form-control" style="height: 130px;" required></textarea>
+                                <input type="hidden" name="utilisateur" value="{{ Session::get('user')->id }}">
+
                                 <button type="submit">Ajouter <i class="zmdi zmdi-long-arrow-right"></i></button>
                             </form>
                         </div>

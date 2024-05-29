@@ -227,30 +227,30 @@
                                 type="text" placeholder="taper AMM">
                         </div>
 
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput11">Conditionnement
+                      {{--   <div class="mb-3"><label class="form-label" for="exampleFormControlInput11">Conditionnement
                                 primaire</label>
                             <input name="Conditionnement_primaire" class="form-control"
                                 id="exampleFormControlInput11" type="text"
                                 placeholder="taper les conditionnements primairs">
-                        </div>
+                        </div> --}}
 
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput12">Spécifocation
+                      {{--   <div class="mb-3"><label class="form-label" for="exampleFormControlInput12">Spécifocation
                                 Conditionnement primaire</label>
                             <input name="Spécifocation_Conditionnement_primaire" class="form-control"
                                 id="exampleFormControlInput12" type="text"
                                 placeholder="taper spécification primaire">
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3"><label class="form-label" for="exampleFormControlInput13">tableau</label>
                             <input name="tableau" class="form-control" id="exampleFormControlInput13" type="text"
                                 placeholder="taper tableau">
                         </div>
 
-                        <div class="mb-3"><label class="form-label" for="exampleFormControlInput14">Durée de
+                       {{--  <div class="mb-3"><label class="form-label" for="exampleFormControlInput14">Durée de
                                 conservation</label>
                             <input name="Durée_de_conservation" class="form-control" id="exampleFormControlInput14"
                                 type="number" placeholder="entrer la durée de consevation">
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3"><label class="form-label"
                                 for="exampleFormControlInput15">Indications</label>

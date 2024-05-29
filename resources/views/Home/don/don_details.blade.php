@@ -37,7 +37,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  @include('home.components.headerdon')
+  @include('home.components.header')
 
   <main id="main">
 
@@ -95,10 +95,10 @@
             </div>
             <button class="addtocart" onclick="addToCart({{ $donation->id }})">
               <div class="pretext">
-                  <i class="fas fa-cart-plus"></i> Ajouter au panier
+                  <i class="fas fa-cart-plus"></i> Reserver
               </div>
               <div class="pretext done">
-                  <div class="posttext"><i class="fas fa-check"></i> Ajouté</div>
+                  <div class="posttext"><i class="fas fa-check"></i> Reservé</div>
               </div>
           </button>
           

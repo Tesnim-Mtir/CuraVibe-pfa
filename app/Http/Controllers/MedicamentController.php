@@ -47,10 +47,10 @@ class MedicamentController extends Controller
         $medicament->Laboratoire = $request->Laboratoire;
         $medicament->AMM = $request->AMM;
         $medicament->Date_AMM = $request->Date_AMM;
-        $medicament->Conditionnement_Primaire = $request->Conditionnement_Primaire;
-        $medicament->Spécifocation_Conditionnement_Primaire = $request->Spécifocation_Conditionnement_Primaire;
+        //$medicament->Conditionnement_Primaire = $request->Conditionnement_Primaire;
+        //$medicament->Spécifocation_Conditionnement_Primaire = $request->Spécifocation_Conditionnement_Primaire;
         $medicament->tableau = $request->tableau;
-        $medicament->Durée_de_Conservation = $request->Durée_de_Conservation;
+        //$medicament->Durée_de_Conservation = $request->Durée_de_Conservation;
         $medicament->Indications = $request->Indications;
         $medicament->G_P_B = $request->G_P_B;
         $medicament->VEIC = $request->VEIC;
@@ -91,7 +91,7 @@ class MedicamentController extends Controller
             "Laboratoire" => "required",
             "AMM" => "nullable",
             "Date_AMM" => "nullable",
-          //"Conditionnement_Primaire" => "required",
+          "Conditionnement_Primaire" => "nullable",
             "tableau" => "required",
           // "Durée_de_Conservation" => "required",   
             "Indications" => "required",
@@ -114,10 +114,10 @@ class MedicamentController extends Controller
         $medicament->Laboratoire = $request->Laboratoire;
         $medicament->AMM = $request->AMM;
         $medicament->Date_AMM = $request->Date_AMM;
-        $medicament->Conditionnement_Primaire = $request->Conditionnement_Primaire;
-        $medicament->Spécifocation_Conditionnement_Primaire = $request->Spécifocation_Conditionnement_Primaire;
+        //$medicament->Conditionnement_Primaire = $request->Conditionnement_Primaire;
+        //$medicament->Spécifocation_Conditionnement_Primaire = $request->Spécifocation_Conditionnement_Primaire;
         $medicament->tableau = $request->tableau;
-        $medicament->Durée_de_Conservation = $request->Durée_de_Conservation;
+        //$medicament->Durée_de_Conservation = $request->Durée_de_Conservation;
         $medicament->Indications = $request->Indications;
         $medicament->G_P_B = $request->G_P_B;
         $medicament->VEIC = $request->VEIC;

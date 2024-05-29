@@ -84,7 +84,7 @@ class DonationController extends Controller
         $donation->status = $validatedData['status'] ?? null;
         $donation->quantite = $validatedData['quantite'] ?? null;
         $donation->description = $validatedData['description'];
-    
+
         // Handle image upload
         if ($request->hasFile('image')) {
             $imageName = $request->file('image')->getClientOriginalName(); // Get the original file name

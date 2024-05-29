@@ -76,9 +76,7 @@
             <h4>{{ $donation->nom }}</h4>
             <p>{{ $donation->description }}</p>
             
-            <a href="assets/1/img/{{ $donation->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $donation->nom }}">
-                <i class="bx bx-plus"></i>
-            </a>
+           
             <a href="{{ route('don_details', ['id' => $donation->id]) }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             
             </a>

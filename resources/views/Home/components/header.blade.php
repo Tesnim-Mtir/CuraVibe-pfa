@@ -14,8 +14,16 @@
 
         
           </a></li>
-   <li><a class="getstarted scrollto" href="inscription">Inscription</a></li>   
-   </ul>
+          <li>  @if (Session::has('user'))
+            <li>
+                <a class="nav-link scrollto" href="/ongoing">Compte: {{ Session::get('user')->name }}</a>
+            </li>
+        @else
+            
+              <li><a class="getstarted scrollto" href="/register">Inscription</a></li>
+            </a></li>
+            
+        @endif</li>   </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
