@@ -391,8 +391,31 @@ public function signout()
 }
 
 
-
 public function login(Request $request)
+{
+
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+
+    $user=User::where('email',$request->input('email'))->first();
+   // dd($user);
+if($user){
+    if (Hash::check($request->input('password'), $user->password))
+    
+    {
+        Session::put('user',$user);
+        return redirect('/');
+    }else{
+        return back()->with('status', 'Mot de passe incorrect');
+    }
+}else{
+    return back()->with('status', "L'utilisateur avec cet e-mail n'existe pas");
+}
+}
+public function login1(Request $request)
 {
 
     $request->validate([

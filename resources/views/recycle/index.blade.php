@@ -40,7 +40,7 @@
   <aside class="sidebar">
     <a href="/admin/recyclemedicament" class="sidebar-link recycle-link">
         <div class="sidebar-header"> 
-            <i class="fas fa-recycle"></i> Recycle Medicament recycle
+            <i class="fas fa-recycle"></i> Recycle Medicament recycle 
         </div>
             </a>
 
