@@ -1,66 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💊 Curavibe
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🩺 Description
 
-## About Laravel
+**Curavibe** est une application innovante, disponible sur **desktop** et **web**, visant à promouvoir le **recyclage des médicaments et produits de parapharmacie**.
+Elle contribue activement aux **Objectifs de Développement Durable (ODD)** :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* 🩹 **ODD 3** – Bonne santé et bien-être
+* 🌍 **ODD 12** – Consommation et production responsables
+* 💕 **ODD 1** – Pas de pauvreté
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+L’application aide à **réduire le gaspillage**, **suivre les traitements médicaux** et **faciliter le don de produits non utilisés**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ⚠️ Problématiques
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* Oubli ou mauvaise gestion de la prise de médicaments.
+* Médicaments et produits parapharmaceutiques périmés ou inutilisés.
+* Automédication sans suivi médical.
+* Achat redondant de médicaments déjà disponibles chez soi.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 💡 Solutions proposées
 
-## Laravel Sponsors
+* 💊 **Module de recyclage** : gestion et réutilisation responsable des médicaments.
+* ⏰ **Module de suivi** : rappels de prise via l’intégration de l’API **Twilio** (alertes SMS).
+* 🤝 **Module de don** : redistribution de médicaments ou équipements non utilisés.
+* 📋 **Suivi médical** : historique de traitement, suivi des indicateurs de santé et gestion des allergies.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛠️ Technologies utilisées
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 🖥️ Application Desktop
 
-## Contributing
+* **Langage :** Java
+* **IDE :** IntelliJ IDEA
+* **Interface :** JavaFX / Scene Builder
+* **Base de données :** MySQL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🌐 Application Web
 
-## Code of Conduct
+* **Framework :** Laravel (PHP)
+* **Base de données :** MySQL
+* **API externe :** Twilio (alertes SMS)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 🚀 Fonctionnalités principales
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Gestion et suivi des traitements.
+* Alertes personnalisées de prise de médicaments.
+* Gestion des allergies et indicateurs de santé.
+* Recyclage et dons de produits non utilisés.
+* Interface intuitive et ergonomique.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📁 Structure du projet
+
+```
+Curavibe/
+├── desktop/        # Application JavaFX
+├── web/            # Application Laravel
+└── database/       # Scripts et schéma MySQL
+```
+
+---
+
+## 🧭 Objectifs d’impact
+
+* 🌱 Réduction du gaspillage pharmaceutique.
+* 🧘 Promotion de la santé et du bien-être par un meilleur suivi thérapeutique.
+* 🤝 Soutien aux communautés grâce au don de médicaments.
+
+---
+
+## 🧑‍💻 Auteurs
+
+Projet développé par **Tasnim Mtir** dans le cadre de la promotion du **développement durable** et de la **santé numérique**.
