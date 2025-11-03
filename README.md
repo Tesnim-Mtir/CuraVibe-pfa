@@ -40,6 +40,9 @@ L’application aide à **réduire le gaspillage**, **suivre les traitements mé
 * **Interface :** JavaFX / Scene Builder
 * **Base de données :** MySQL
 
+  🔗 Version Desktop Repository: [CuraVibe Desktop](https://github.com/Tesnim-Mtir/CuraVibe-Desktop)
+
+
 ### 🌐 Application Web
 
 * **Framework :** Laravel (PHP)
